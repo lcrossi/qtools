@@ -4,7 +4,6 @@ import App from './App.jsx'
 import Tools from './pages/tools/index.jsx';
 import About from './pages/about/index.jsx';
 import Error404 from './pages/error/errorPage404.jsx';
-import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
