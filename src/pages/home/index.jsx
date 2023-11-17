@@ -18,12 +18,17 @@ const history = useHistory();
             As ferramentas da qualidade na palma da sua mão.
         </p>
         <div className="card">
-            <button onClick={history.push('/tools')}>
+            <button onClick={() => history.push('/tools')}>
                 Iniciar
             </button>
             <p className="gray-subtitle">
                 Clique em iniciar para usar o Q-Tools
             </p>
+            <Link to='/about'>
+                <p className="gray-subtitle">
+                    Para mais informações clique aqui.
+                </p>
+            </Link>
         </div>
     </>
     )
