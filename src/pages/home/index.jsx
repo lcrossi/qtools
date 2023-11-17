@@ -1,10 +1,9 @@
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import qtoolsLogo from '../../assets/E-QTools_sem fundo.png'
 import './home.css'
 
 export default function Home() {
-const history = useHistory();
 
     return (
         <>
@@ -18,7 +17,7 @@ const history = useHistory();
             As ferramentas da qualidade na palma da sua mão.
         </p>
         <div className="card">
-            <button onClick={() => history.push('/tools')}>
+            <button>
                 Iniciar
             </button>
             <p className="gray-subtitle">
