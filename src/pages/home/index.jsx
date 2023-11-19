@@ -41,10 +41,10 @@ export default function Home() {
                 </Col>
             </Row>
             <Row className='home'>
-                <Link to='/about'>
-                    <a className="gray-subtitle">
+            <Link to='/about'>
+                    <p className="gray-subtitle linkAbout">
                         Para mais informações clique aqui.
-                    </a>
+                    </p>
                 </Link>
             </Row>
         </Container>
