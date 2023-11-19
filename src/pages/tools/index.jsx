@@ -13,7 +13,6 @@ export default function Tools() {
         <div className='toolsContainer'>
             <Stack >
                 <div className="ms-3"><Ishikawa/></div> 
-                <div className="ms-3"><Ishikawa/></div> 
             </Stack>
         </div>
         </>
