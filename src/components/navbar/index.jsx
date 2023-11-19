@@ -9,7 +9,9 @@ export default function Navbar() {
 
     return (
         <Stack direction='horizontal' className='navbar fluid'>
-            <Button variant="secondary" className='p-2 ms-3'>{"< Voltar"}</Button>
+            <Link to="/">
+                <Button variant="secondary" className='p-2 ms-3'>{"< Voltar"}</Button>
+            </Link>
             <Figure.Image
                 className='ms-auto fluid'
                 width={110}
