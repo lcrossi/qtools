@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Button, Form, Row, Card, Col, Container, Modal } from 'react-bootstrap'
 import Fishbone from '@hophiphip/react-fishbone';
+import { ToolsContext } from '../../context/toolsContext';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './ishikawa.css'
 
@@ -8,7 +9,7 @@ export default function Ishikawa() {
     const [showOrHide, setShowOrHide] = useState('show')
     const [renderIshChart, setRenderIshChart] = useState(false)
     const [btnLabel, setBtnLabel] = useState('Salvar')
-    const [ishItems, setIshItems] = useState(0)
+    const [ishItems, setIshItems] = useState({})
     const [ishPrincipal, setIshPrincipal] = useState('Prob principal')
     const [ishMetodo, setIshMetodo] = useState([])
     const [ishMao, setIshMao] = useState([])
@@ -19,53 +20,59 @@ export default function Ishikawa() {
     const [showModalProbAdded, setShowModalProbAdded] = useState(false);
     const [showModalProbError, setShowModalProbError] = useState(false);
     const [fishboneChartMinWidth, setFishboneChartMinWidth] = useState(900)
+    // Variáveis do context
+    const { 
+        stage, setStage,
+        contextIshikawaData, setContextIshikawaData,
+    } = useContext(ToolsContext)
+
     var metodoProblem = ''
     var maoProblem = ''
     var materialProblem = ''
     var maquinaProblem = ''
     var ambienteProblem = ''
     var medicaoProblem = ''
-    /* useEffect(() => {
-         setIshItems ({
-            "name": ishPrincipal,
-            "children": [
-                {
-                    "name": "Maquina",
-                    "children": [
-                        {"name": "Speed"},
-                        {"name": "Bits"},
-                        {"name": "Sockets"}
-                    ]
-                },
-                {
-                    "name": "Personel",
-                    "children": [
-                        {"name": "Shifts"},
-                        {"name": "Training"},
-                        {"name": "Operators"}
-                    ]
-                },
-                {
-                    "name": "Methods",
-                    "children": [
-                        {"name": "Brake"},
-                        {"name": "Angle"},
-                    ]
-                },
-                {
-                    "name": "Material",
-                    "children": [
-                        {
-                            "name": "Quality",
-                            "children": [
-                                {"name": "Delivery"},
-                            ]
-                        },
-                    ]
-                }
-            ]
-        })
-    }, []) */
+
+    function loadIshikawa() {
+        if (btnLabel == 'Salvar') {
+            setShowOrHide('hide')
+            setBtnLabel('Editar')
+            setIshItems ({
+                "name": ishPrincipal,
+                "children": [
+                    {
+                        "name": "Método",
+                        "children": ishMetodo,
+                    },
+                    {
+                        "name": "Mão de Obra",
+                        "children": ishMao,
+                    },
+                    {
+                        "name": "Material",
+                        "children": ishMaterial
+                    },
+                    {
+                        "name": "Máquina",
+                        "children": ishMaquina
+                    },
+                    {
+                        "name": "Meio Ambiente",
+                        "children": ishAmbiente
+                    },
+                    {
+                        "name": "Meio de Medição",
+                        "children": ishMedicao
+                    },
+                ]
+            })
+            setRenderIshChart(true)
+        } else {
+            setShowOrHide('show')
+            setBtnLabel('Salvar')
+            setRenderIshChart(false)
+        }
+    }
 
     function handleInputChange(type, value) {
         if (type == 'problemaPrincipal') {
@@ -171,47 +178,6 @@ export default function Ishikawa() {
         document.getElementById(`input_${type}`).value = ''
     }
 
-    function loadIshikawa() {
-        if (btnLabel == 'Salvar') {
-            setShowOrHide('hide')
-            setBtnLabel('Editar')
-            setIshItems ({
-                "name": ishPrincipal,
-                "children": [
-                    {
-                        "name": "Método",
-                        "children": ishMetodo,
-                    },
-                    {
-                        "name": "Mão de Obra",
-                        "children": ishMao,
-                    },
-                    {
-                        "name": "Material",
-                        "children": ishMaterial
-                    },
-                    {
-                        "name": "Máquina",
-                        "children": ishMaquina
-                    },
-                    {
-                        "name": "Meio Ambiente",
-                        "children": ishAmbiente
-                    },
-                    {
-                        "name": "Meio de Medição",
-                        "children": ishMedicao
-                    },
-                ]
-            })
-            console.log(ishItems)
-            setRenderIshChart(true)
-        } else {
-            setShowOrHide('show')
-            setBtnLabel('Salvar')
-            setRenderIshChart(false)
-        }
-    }
 
     function handleShowModalProbs(type) {
         if (type == "added") {
@@ -270,6 +236,12 @@ export default function Ishikawa() {
         size == 'GG' ? setFishboneChartMinWidth(2000) : console.log("Erro: Impossivel selecionar o tamanho")
     }
 
+    function handleNextStage() {
+        setStage('5 Porquês')
+        setContextIshikawaData(ishItems)
+        console.log('Indo para 5PQs')
+    }
+
     return (
         <>
             <Modal size="sm" show={showModalProbAdded} onHide={() => setShowModalProbAdded(false)}>
@@ -284,6 +256,9 @@ export default function Ishikawa() {
             </Modal>
             <Card id="ishiForm" className="p-3 mb-4">
                 <div className={`ishFormHeader`}>
+                    {`O estagio atual: ${stage}`}
+                    <button onClick={() => handleNextStage()}>Next stage</button>
+                    <button onClick={() => console.log('handle ish')}>Handle ish</button>
                     <h2 className='mb-4'>Diagrama de Ishikawa</h2>
                 </div>
                 <Form className={showOrHide}>
