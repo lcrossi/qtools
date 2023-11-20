@@ -74,3 +74,11 @@
 .home .gray-subtitle {
   color: #888;
 }
+
+.show {
+  list-style-position: inside;
+}
+
+.hide {
+  display: none;
+}
