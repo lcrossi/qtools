@@ -15,10 +15,6 @@ export default function Tools() {
     const [ contextIshikawaData, setContextIshikawaData ] = useState({'name': ''})
     const [ context5PqsData, setContext5PqsData, ] = useState({})
 
-    /* function imprimirIsh() {
-        if(contextIshikawaData) return <div>{contextIshikawaData.name}</div> 
-    } */
-
     return(
         <>
         <ToolsContext.Provider value={{ 
