@@ -10,7 +10,7 @@ import './tools.css'
 
 
 export default function Tools() {
-    const [showHidePqs, setShowHidePqs] = useState('show')
+    const [showHidePqs, setShowHidePqs] = useState('hide')
     const [ stage, setStage] = useState('Ishikawa')
     const [ contextIshikawaData, setContextIshikawaData ] = useState({'name': ''})
     const [ context5PqsData, setContext5PqsData, ] = useState({})
@@ -21,6 +21,8 @@ export default function Tools() {
             stage, setStage,
             contextIshikawaData, setContextIshikawaData,
             context5PqsData, setContext5PqsData,
+
+            showHidePqs, setShowHidePqs,
         }}>
             <Navbar/>
             <div className='toolsContainer'>

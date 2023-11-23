@@ -8,10 +8,11 @@ import './ishikawa.css'
 
 export default function Ishikawa() {
     const [showOrHide, setShowOrHide] = useState('show')
+    const [showIshForm, setShowIshForm] = useState('show')
     const [renderIshChart, setRenderIshChart] = useState(false)
     const [btnLabel, setBtnLabel] = useState('Salvar')
     const [ishItems, setIshItems] = useState({})
-    const [ishPrincipal, setIshPrincipal] = useState('Prob principal')
+    const [ishPrincipal, setIshPrincipal] = useState()
     const [ishMetodo, setIshMetodo] = useState([])
     const [ishMao, setIshMao] = useState([])
     const [ishMaterial, setIshMaterial] = useState([])
@@ -25,6 +26,7 @@ export default function Ishikawa() {
     const { 
         stage, setStage,
         contextIshikawaData, setContextIshikawaData,
+        setShowHidePqs,
     } = useContext(ToolsContext)
 
     var metodoProblem = ''
@@ -268,6 +270,8 @@ export default function Ishikawa() {
         loadIshikawa(true)
         setContextIshikawaData(ishItems)
         setStage('5 Porquês')
+        setShowHidePqs('show')
+        setShowIshForm('hide')
         console.log('Indo para 5PQs')
     }
 
@@ -283,9 +287,8 @@ export default function Ishikawa() {
                 <Modal.Title>Erro ao adicionar!</Modal.Title>
                 </Modal.Header>
             </Modal>
-            <Card id="ishiForm" className="p-3 mb-4">
+            <Card id="ishiForm" className={`p-3 mb-4 ${showIshForm}`}>
                 <div className={`ishFormHeader`}>
-                    {`O estagio atual: ${stage}`}      
                     <h2 className='mb-4'>Diagrama de Ishikawa</h2>
                 </div>
                 <Form className={showOrHide}>
