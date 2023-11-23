@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react'
-import { Button, Form, Row, Card, Col, Container, Modal } from 'react-bootstrap'
+import { Button, Form, Row, Card, Col, Container, Modal, Stack } from 'react-bootstrap'
 import Fishbone from '@hophiphip/react-fishbone';
 import { ToolsContext } from '../../context/toolsContext';
+import ProbList from './probList';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './ishikawa.css'
 
@@ -178,6 +179,32 @@ export default function Ishikawa() {
         document.getElementById(`input_${type}`).value = ''
     }
 
+    function deleteIshProblem(type) {
+        if (type == 'metodo') {
+            setIshMetodo([])
+        }
+
+        if (type == 'mao') {
+            setIshMao([])
+        }
+
+        if (type == 'material') {
+            setIshMaterial([])
+        }
+        
+        if (type == 'maquina') {
+            setIshMaquina([])
+        }
+
+        if (type == 'ambiente') {
+            setIshAmbiente([])
+        }
+
+        if (type == 'medicao') {
+            setIshMedicao([])
+        }
+    }
+
 
     function handleShowModalProbs(type) {
         if (type == "added") {
@@ -276,7 +303,24 @@ export default function Ishikawa() {
                             onChange={e => handleInputChange('metodo', e.target.value)}
                             placeholder="Adicione um problema por vez" 
                         />
-                        <Button onClick={() => addIshProblem('metodo')} variant='primary' className='mb-2'>Adicionar</Button>
+                        <Container fluid className='md-0'>
+                            <Row>
+                                <Col>
+                                    <Button onClick={() => addIshProblem('metodo')} variant='primary' className='mb-2'>Adicionar</Button>
+                                </Col>
+                                <Col></Col>
+                                <Col style={{display: 'flex', justifyContent: 'right'}}>
+                                    <Button onClick={() => deleteIshProblem('metodo')} variant='danger' className='mb-2'>Limpar</Button>
+                                </Col>
+                            </Row>
+                            <Row >
+                                <Col></Col>
+                                <Col xs={7}>
+                                    <ProbList props={ishMetodo} />
+                                </Col>
+                                <Col></Col>
+                            </Row>
+                        </Container>
                     </Form.Group>
                     <Form.Group className="mb-5">
                         <Form.Label>Problema - Mão de Obra</Form.Label>
@@ -284,7 +328,24 @@ export default function Ishikawa() {
                             onChange={e => handleInputChange('mao', e.target.value)}
                             placeholder="Adicione um problema por vez" 
                         />
-                        <Button onClick={() => addIshProblem('mao')} variant='primary' className='mb-2'>Adicionar</Button>
+                        <Container fluid className='md-0'>
+                            <Row>
+                                <Col>
+                                    <Button onClick={() => addIshProblem('mao')} variant='primary' className='mb-2'>Adicionar</Button>
+                                </Col>
+                                <Col></Col>
+                                <Col style={{display: 'flex', justifyContent: 'right'}}>
+                                    <Button onClick={() => deleteIshProblem('mao')} variant='danger' className='mb-2'>Limpar</Button>
+                                </Col>
+                            </Row>
+                            <Row >
+                                <Col></Col>
+                                <Col xs={7}>
+                                    <ProbList props={ishMao} />
+                                </Col>
+                                <Col></Col>
+                            </Row>
+                        </Container>                    
                     </Form.Group>
                     <Form.Group className="mb-5">
                         <Form.Label>Problema - Material</Form.Label>
@@ -292,7 +353,24 @@ export default function Ishikawa() {
                             onChange={e => handleInputChange('material', e.target.value)}
                             placeholder="Adicione um problema por vez" 
                         />
-                        <Button onClick={() => addIshProblem('material')} variant='primary' className='mb-2'>Adicionar</Button>
+                        <Container fluid className='md-0'>
+                            <Row>
+                                <Col>
+                                    <Button onClick={() => addIshProblem('material')} variant='primary' className='mb-2'>Adicionar</Button>
+                                </Col>
+                                <Col></Col>
+                                <Col style={{display: 'flex', justifyContent: 'right'}}>
+                                    <Button onClick={() => deleteIshProblem('material')} variant='danger' className='mb-2'>Limpar</Button>
+                                </Col>
+                            </Row>
+                            <Row >
+                                <Col></Col>
+                                <Col xs={7}>
+                                    <ProbList props={ishMaterial} />
+                                </Col>
+                                <Col></Col>
+                            </Row>
+                        </Container>
                     </Form.Group>
                     <Form.Group className="mb-5">
                         <Form.Label>Problema - Máquina</Form.Label>
@@ -300,7 +378,24 @@ export default function Ishikawa() {
                             onChange={e => handleInputChange('maquina', e.target.value)}
                             placeholder="Adicione um problema por vez" 
                         />
-                        <Button onClick={() => addIshProblem('maquina')} variant='primary' className='mb-2'>Adicionar</Button>
+                        <Container fluid className='md-0'>
+                            <Row>
+                                <Col>
+                                    <Button onClick={() => addIshProblem('maquina')} variant='primary' className='mb-2'>Adicionar</Button>
+                                </Col>
+                                <Col></Col>
+                                <Col style={{display: 'flex', justifyContent: 'right'}}>
+                                    <Button onClick={() => deleteIshProblem('maquina')} variant='danger' className='mb-2'>Limpar</Button>
+                                </Col>
+                            </Row>
+                            <Row >
+                                <Col></Col>
+                                <Col xs={7}>
+                                    <ProbList props={ishMaquina} />
+                                </Col>
+                                <Col></Col>
+                            </Row>
+                        </Container>
                     </Form.Group>
                     <Form.Group className="mb-5">
                         <Form.Label>Problema - Meio Ambiente</Form.Label>
@@ -308,7 +403,24 @@ export default function Ishikawa() {
                             onChange={e => handleInputChange('ambiente', e.target.value)}
                             placeholder="Adicione um problema por vez" 
                         />
-                        <Button onClick={() => addIshProblem('ambiente')} variant='primary' className='mb-2'>Adicionar</Button>
+                        <Container fluid className='md-0'>
+                            <Row>
+                                <Col>
+                                    <Button onClick={() => addIshProblem('ambiente')} variant='primary' className='mb-2'>Adicionar</Button>
+                                </Col>
+                                <Col></Col>
+                                <Col style={{display: 'flex', justifyContent: 'right'}}>
+                                    <Button onClick={() => deleteIshProblem('ambiente')} variant='danger' className='mb-2'>Limpar</Button>
+                                </Col>
+                            </Row>
+                            <Row >
+                                <Col></Col>
+                                <Col xs={7}>
+                                    <ProbList props={ishAmbiente} />
+                                </Col>
+                                <Col></Col>
+                            </Row>
+                        </Container>
                     </Form.Group>
                     <Form.Group className="mb-5">
                         <Form.Label>Problema - Meio de Medição</Form.Label>
@@ -316,9 +428,28 @@ export default function Ishikawa() {
                             onChange={e => handleInputChange('medicao', e.target.value)}
                             placeholder="Adicione um problema por vez" 
                         />
-                        <Button onClick={() => addIshProblem('medicao')} variant='primary' className='mb-2'>Adicionar</Button>
+                        <Container fluid className='md-0'>
+                            <Row>
+                                <Col>
+                                    <Button onClick={() => addIshProblem('medicao')} variant='primary' className='mb-2'>Adicionar</Button>
+                                </Col>
+                                <Col></Col>
+                                <Col style={{display: 'flex', justifyContent: 'right'}}>
+                                    <Button onClick={() => deleteIshProblem('medicao')} variant='danger' className='mb-2'>Limpar</Button>
+                                </Col>
+                            </Row>
+                            <Row >
+                                <Col></Col>
+                                <Col xs={7}>
+                                    <ProbList props={ishMedicao} />
+                                </Col>
+                                <Col></Col>
+                            </Row>
+                        </Container>
                     </Form.Group>
                 </Form>
+                <br />
+                <br />
                 <Container className='fluid'>
                     <Row style={{textAlign: 'center'}}>
                         <Col>
