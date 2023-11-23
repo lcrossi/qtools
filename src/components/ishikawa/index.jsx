@@ -264,8 +264,10 @@ export default function Ishikawa() {
     }
 
     function handleNextStage() {
-        setStage('5 Porquês')
+        //validar com um modal de confirmação - a ideia é não deixar mais alterar os dados da ishikawa agora
+        loadIshikawa(true)
         setContextIshikawaData(ishItems)
+        setStage('5 Porquês')
         console.log('Indo para 5PQs')
     }
 
@@ -283,9 +285,7 @@ export default function Ishikawa() {
             </Modal>
             <Card id="ishiForm" className="p-3 mb-4">
                 <div className={`ishFormHeader`}>
-                    {`O estagio atual: ${stage}`}
-                    <button onClick={() => handleNextStage()}>Next stage</button>
-                    <button onClick={() => console.log('handle ish')}>Handle ish</button>
+                    {`O estagio atual: ${stage}`}      
                     <h2 className='mb-4'>Diagrama de Ishikawa</h2>
                 </div>
                 <Form className={showOrHide}>
@@ -473,7 +473,7 @@ export default function Ishikawa() {
                         </Col>
                         <Col>
                             <Button 
-                                onClick={() => console.log("Proximo")} 
+                                onClick={() => handleNextStage()}
                                 variant='primary' 
                                 className='fluid ms-auto'> 
                                 {"Próximo >"}
