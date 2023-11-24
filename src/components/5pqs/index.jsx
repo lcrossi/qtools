@@ -65,6 +65,15 @@ export default function Pqs() {
         }
     }
 
+    function deletePqs() {
+        let obj = allProblems
+            obj[currentProblemNumber].whys = []
+            setAllProblems(obj)
+            setInputValue('')
+            setPqsToShow(allProblems[currentProblemNumber])
+            console.log(allProblems)
+    }
+
     function handleNextStage() {
         setStage('GUT')
         console.log('Indo para GUT')

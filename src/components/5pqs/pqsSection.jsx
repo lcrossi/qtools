@@ -3,6 +3,10 @@ import { Button, Form, Row, ListGroup, Col, Container, Badge} from 'react-bootst
 
 export default function PqsList({pqs}) {
 
+    /* useEffect(() => {
+        list()
+    }, [pqs]) */
+
     function list() {
         if(pqs)
             if(pqs.whys) {
@@ -19,7 +23,7 @@ export default function PqsList({pqs}) {
                                 <div className="md-5"></div>{why}
                             </div>
                             <Badge bg="primary" pill>
-                                {'   '}
+                                {"   "}
                             </Badge>
                         </ListGroup.Item>
                     )
@@ -32,7 +36,6 @@ export default function PqsList({pqs}) {
     console.log('pqs recebidas: ', pqs)
     return(
         <ListGroup as="ol">
-            {/* <h4>{pqs ? pqs.problem : null}</h4> */}
             <ListGroup.Item
                 variant='warning'
                 as="li"
