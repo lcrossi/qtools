@@ -8,6 +8,7 @@ import './ishikawa.css'
 
 export default function Ishikawa() {
     const [showOrHide, setShowOrHide] = useState('show')
+    const [notReadyForPqs, setNotReadyForPqs] = useState(true)
     const [showIshForm, setShowIshForm] = useState('show')
     const [renderIshChart, setRenderIshChart] = useState(false)
     const [btnLabel, setBtnLabel] = useState('Salvar')
@@ -25,7 +26,7 @@ export default function Ishikawa() {
     // Variáveis do context
     const { 
         setStage,
-        setContextIshikawaData,
+        contextIshikawaData, setContextIshikawaData,
         setShowHidePqs,
     } = useContext(ToolsContext)
 
@@ -267,12 +268,12 @@ export default function Ishikawa() {
 
     function handleNextStage() {
         //validar com um modal de confirmação - a ideia é não deixar mais alterar os dados da ishikawa agora
-        loadIshikawa(true)
+        loadIshikawa()
         setContextIshikawaData(ishItems)
         setStage('5 Porquês')
         setShowHidePqs('show')
         setShowIshForm('hide')
-        console.log('Indo para 5PQs')
+        console.log('Loading 5PQs...')
     }
 
     return (
@@ -468,7 +469,7 @@ export default function Ishikawa() {
                         </Col>
                         <Col>
                             <Button 
-                                onClick={() => loadIshikawa(true)} 
+                                onClick={() => {loadIshikawa(), setNotReadyForPqs(false)}} 
                                 variant='success' 
                                 className='fluid ms-auto'> 
                                 { btnLabel } 
@@ -476,9 +477,10 @@ export default function Ishikawa() {
                         </Col>
                         <Col>
                             <Button 
-                                onClick={() => handleNextStage()}
+                                onClick={() => {loadIshikawa(); handleNextStage()}}
                                 variant='primary' 
-                                className='fluid ms-auto'> 
+                                className='fluid ms-auto'
+                                disabled={notReadyForPqs}> 
                                 {"Próximo >"}
                             </Button>
                         </Col>
