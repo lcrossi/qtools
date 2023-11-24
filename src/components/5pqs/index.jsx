@@ -4,17 +4,38 @@ import { ToolsContext } from '../../context/toolsContext';
 import './5pqs.css'
 
 export default function Pqs() {
+    const [ allProblems, setAllProblems ] = useState([])
     const { 
         stage, setStage,
         contextIshikawaData, setContextIshikawaData,
         context5PqsData, setContext5PqsData,
     } = useContext(ToolsContext)
+    var allProbsAux = []
+    useEffect(() => {
+        if(contextIshikawaData.children) {
+            contextIshikawaData.children.forEach(category => { //camada das categorias
+                category.children.forEach((problemObj, index) => {
+                    console.log(problemObj.name)
+                    allProbsAux.push({
+                        'category': category.name,
+                        'problem': problemObj.name,
+                        'id': category.name+index,
+                        'whys': []
+                    })
+                });
+            });
+            setAllProblems(allProbsAux)
+        }
+        console.log(allProblems)
+    },[contextIshikawaData])
 
     function handleNextStage() {
         setStage('GUT')
         console.log('Indo para GUT')
         console.log(contextIshikawaData)
     }
+
+
 
     return (
         <>
@@ -31,7 +52,7 @@ export default function Pqs() {
                 <Row>
                     <Col>
                         <Button 
-                            onClick={() => console.log()} 
+                            onClick={() => console.log(allProblems)} 
                             variant='secondary' 
                             className='fluid ms-auto'> 
                             {" < "}
