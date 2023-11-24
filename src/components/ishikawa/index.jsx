@@ -24,8 +24,8 @@ export default function Ishikawa() {
     const [fishboneChartMinWidth, setFishboneChartMinWidth] = useState(900)
     // Variáveis do context
     const { 
-        stage, setStage,
-        contextIshikawaData, setContextIshikawaData,
+        setStage,
+        setContextIshikawaData,
         setShowHidePqs,
     } = useContext(ToolsContext)
 
@@ -308,12 +308,12 @@ export default function Ishikawa() {
                         />
                         <Container fluid className='md-0'>
                             <Row>
-                                <Col>
-                                    <Button onClick={() => addIshProblem('metodo')} variant='primary' className='mb-2'>Adicionar</Button>
+                                <Col style={{marginLeft: -12}}>
+                                    <Button onClick={() => addIshProblem('metodo')} variant='outline-primary' className='mb-2'>Adicionar</Button>
                                 </Col>
                                 <Col></Col>
-                                <Col style={{display: 'flex', justifyContent: 'right'}}>
-                                    <Button onClick={() => deleteIshProblem('metodo')} variant='danger' className='mb-2'>Limpar</Button>
+                                <Col style={{display: 'flex', justifyContent: 'right', marginRight: -12}}>
+                                    <Button onClick={() => deleteIshProblem('metodo')} variant='outline-danger' className='mb-2'>Limpar</Button>
                                 </Col>
                             </Row>
                             <Row >
@@ -333,12 +333,12 @@ export default function Ishikawa() {
                         />
                         <Container fluid className='md-0'>
                             <Row>
-                                <Col>
-                                    <Button onClick={() => addIshProblem('mao')} variant='primary' className='mb-2'>Adicionar</Button>
+                                <Col style={{marginLeft: -12}}>
+                                    <Button onClick={() => addIshProblem('mao')} variant='outline-primary' className='mb-2'>Adicionar</Button>
                                 </Col>
                                 <Col></Col>
-                                <Col style={{display: 'flex', justifyContent: 'right'}}>
-                                    <Button onClick={() => deleteIshProblem('mao')} variant='danger' className='mb-2'>Limpar</Button>
+                                <Col style={{display: 'flex', justifyContent: 'right', marginRight: -12}}>
+                                    <Button onClick={() => deleteIshProblem('mao')} variant='outline-danger' className='mb-2'>Limpar</Button>
                                 </Col>
                             </Row>
                             <Row >
@@ -358,12 +358,12 @@ export default function Ishikawa() {
                         />
                         <Container fluid className='md-0'>
                             <Row>
-                                <Col>
-                                    <Button onClick={() => addIshProblem('material')} variant='primary' className='mb-2'>Adicionar</Button>
+                                <Col style={{marginLeft: -12}}>
+                                    <Button onClick={() => addIshProblem('material')} variant='outline-primary' className='mb-2'>Adicionar</Button>
                                 </Col>
                                 <Col></Col>
-                                <Col style={{display: 'flex', justifyContent: 'right'}}>
-                                    <Button onClick={() => deleteIshProblem('material')} variant='danger' className='mb-2'>Limpar</Button>
+                                <Col style={{display: 'flex', justifyContent: 'right', marginRight: -12}}>
+                                    <Button onClick={() => deleteIshProblem('material')} variant='outline-danger' className='mb-2'>Limpar</Button>
                                 </Col>
                             </Row>
                             <Row >
@@ -383,12 +383,12 @@ export default function Ishikawa() {
                         />
                         <Container fluid className='md-0'>
                             <Row>
-                                <Col>
-                                    <Button onClick={() => addIshProblem('maquina')} variant='primary' className='mb-2'>Adicionar</Button>
+                                <Col style={{marginLeft: -12}}>
+                                    <Button onClick={() => addIshProblem('maquina')} variant='outline-primary' className='mb-2'>Adicionar</Button>
                                 </Col>
                                 <Col></Col>
-                                <Col style={{display: 'flex', justifyContent: 'right'}}>
-                                    <Button onClick={() => deleteIshProblem('maquina')} variant='danger' className='mb-2'>Limpar</Button>
+                                <Col style={{display: 'flex', justifyContent: 'right', marginRight: -12}}>
+                                    <Button onClick={() => deleteIshProblem('maquina')} variant='outline-danger' className='mb-2'>Limpar</Button>
                                 </Col>
                             </Row>
                             <Row >
@@ -408,12 +408,12 @@ export default function Ishikawa() {
                         />
                         <Container fluid className='md-0'>
                             <Row>
-                                <Col>
-                                    <Button onClick={() => addIshProblem('ambiente')} variant='primary' className='mb-2'>Adicionar</Button>
+                                <Col style={{marginLeft: -12}}>
+                                    <Button onClick={() => addIshProblem('ambiente')} variant='outline-primary' className='mb-2'>Adicionar</Button>
                                 </Col>
                                 <Col></Col>
-                                <Col style={{display: 'flex', justifyContent: 'right'}}>
-                                    <Button onClick={() => deleteIshProblem('ambiente')} variant='danger' className='mb-2'>Limpar</Button>
+                                <Col style={{display: 'flex', justifyContent: 'right', marginRight: -12}}>
+                                    <Button onClick={() => deleteIshProblem('ambiente')} variant='outline-danger' className='mb-2'>Limpar</Button>
                                 </Col>
                             </Row>
                             <Row >
@@ -433,12 +433,12 @@ export default function Ishikawa() {
                         />
                         <Container fluid className='md-0'>
                             <Row>
-                                <Col>
-                                    <Button onClick={() => addIshProblem('medicao')} variant='primary' className='mb-2'>Adicionar</Button>
+                                <Col style={{marginLeft: -12}}>
+                                    <Button onClick={() => addIshProblem('medicao')} variant='outline-primary' className='mb-2'>Adicionar</Button>
                                 </Col>
                                 <Col></Col>
-                                <Col style={{display: 'flex', justifyContent: 'right'}}>
-                                    <Button onClick={() => deleteIshProblem('medicao')} variant='danger' className='mb-2'>Limpar</Button>
+                                <Col style={{display: 'flex', justifyContent: 'right', marginRight: -12}}>
+                                    <Button onClick={() => deleteIshProblem('medicao')} variant='outline-danger' className='mb-2'>Limpar</Button>
                                 </Col>
                             </Row>
                             <Row >
@@ -453,7 +453,7 @@ export default function Ishikawa() {
                 </Form>
                 <br />
                 <br />
-                <Container className='fluid'>
+                <Container fluid>
                     <Row style={{textAlign: 'center'}}>
                         <Col>
                             <select id='fishboneChartSizeSelector' className={showOrHide} onChange={e => selectFishboneChartSize(e.target.value)}>

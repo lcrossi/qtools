@@ -6,9 +6,7 @@ export default function ProbList({props}) {
     let problemsArray = props
     let problemsListObject = []
     function showList() {
-        console.log(problemsArray)
         problemsListObject = problemsArray.map((problema, index) => {
-            console.log(problema)
             return (<ListGroup.Item as="li" key={index}>{problema.name}</ListGroup.Item>)
         })
 
