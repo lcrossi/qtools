@@ -69,7 +69,7 @@ export default function Pqs() {
         let obj = allProblems
             obj[currentProblemNumber].whys = []
             setAllProblems(obj)
-            setInputValue('')
+            setInputValue(' ')
             setPqsToShow(allProblems[currentProblemNumber])
             console.log(allProblems)
     }
@@ -129,7 +129,14 @@ export default function Pqs() {
                                 <Form.Control id='input_pqs' className='mb-2' type="text" 
                                     onChange={e => handleInputChange(e.target.value)}
                                     value={inputValue}
-                                    placeholder="Insira o porquê..." 
+                                    onKeyDown={e => e.key === "Enter" ? addPq() : null}
+                                    placeholder="Insira o porquê..."
+                                    />
+                                <Form.Control id='input_pqs' className='hide' type="text" 
+                                    onChange={e => handleInputChange(e.target.value)}
+                                    value={inputValue}
+                                    onKeyDown={e => e.key === "Enter" ? addPq() : null}
+                                    placeholder="Insira o porquê..."
                                     />
                             </Col>
                         </Row>
