@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from '../../components/navbar'
 import Ishikawa from '../../components/ishikawa'
 import Pqs from '../../components/5pqs'
-import Gut from '../../components/GUT/GUT'
+import Gut from '../../components/GUT'
 import { ToolsContext } from '../../context/toolsContext'
 import './tools.css'
 
@@ -15,8 +15,8 @@ export default function Tools() {
     const [ showHideGut, setShowHideGut ] = useState('show')
     const [ stage, setStage] = useState('Ishikawa')
     const [ contextIshikawaData, setContextIshikawaData ] = useState({'name': ''})
-    const [ context5PqsData, setContext5PqsData ] = useState({})
-    const [ contextGUTData, setContextGUTData ] = useState({})
+    const [ context5PqsData, setContext5PqsData ] = useState()
+    const [ contextGUTData, setContextGUTData ] = useState()
 
     return(
         <>

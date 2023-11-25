@@ -7,6 +7,7 @@ import './5pqs.css'
 export default function Pqs() {
     const [ allProblems, setAllProblems ] = useState([])
     const [ pqsToShow, setPqsToShow ] = useState()
+    const [ disableNextStage, setDisableNextStage ] = useState(true)
     const [ showPorques, setShowPorques ] = useState(<></>)
     const [ inputValue, setInputValue ] = useState('')
     const [ currentProblemNumber, setCurrentProblemNumber ] = useState(0)
@@ -61,6 +62,7 @@ export default function Pqs() {
             setAllProblems(obj)
             setInputValue('')
             setPqsToShow(allProblems[currentProblemNumber])
+            setDisableNextStage(false)
             console.log(allProblems)
         }
     }
@@ -76,16 +78,15 @@ export default function Pqs() {
 
     function handleNextStage() {
         setStage('GUT')
+        setContext5PqsData(allProblems)
         console.log('Indo para GUT')
-        console.log(contextIshikawaData)
     }
 
 
     return (
         <>
         <Card>
-            {`Estagio atual: ${stage} e prob principal: ${contextIshikawaData.name}`}
-            <Container fluid>
+            <Container fluid style={{marginTop: 30}}>
                 <Row>
                     <Col>
                         <div className={`PqsFormHeader`}>
@@ -152,7 +153,11 @@ export default function Pqs() {
                     </Form.Group>
                 </Form>
                 <Row style={{marginTop: 50}}>
-                    <button onClick={() => handleNextStage()}>Ir GUT</button>
+                    <Col></Col>
+                    <Col style={{display: 'flex', justifyContent: 'center'}} className='mb-4'>
+                        <Button disabled={disableNextStage} onClick={() => handleNextStage()}>Próximo { " >" }</Button>
+                    </Col>
+                    <Col></Col>
                 </Row>
             </Container>
         </Card>

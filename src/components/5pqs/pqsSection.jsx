@@ -1,5 +1,5 @@
 import React, { UseState, useEffect, useState } from 'react'
-import { Button, Form, Row, ListGroup, Col, Container, Badge} from 'react-bootstrap'
+import { ListGroup, Badge} from 'react-bootstrap'
 
 export default function PqsList({pqs}) {
 
@@ -32,7 +32,6 @@ export default function PqsList({pqs}) {
             }
     }
 
-    console.log('pqs recebidas: ', pqs)
     return(
         <ListGroup as="ol">
             <ListGroup.Item
