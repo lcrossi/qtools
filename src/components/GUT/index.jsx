@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import GutChart from './gutChart'
 import { ToolsContext } from '../../context/toolsContext';
 
 import { Form, Row, Col, Container, Card, Button } from 'react-bootstrap'
@@ -6,7 +7,9 @@ import './gut.css'
 
 export default function Gut() {
     const [ gutInputs, setGutInputs ] = useState()
+    const [ gutChartData, setGutChartData ] = useState()
     const [ showOrHide, setShowOrHide ] = useState('show')
+    const [ showOrHideChart, setShowOrHideChart ] = useState('show')
     const [ renderGUTChart, setRenderGUTChart ] = useState(false)
     const [ gutInputsAux, setGutInputsAux ] = useState()
     const [ notReadyFor5w2h, setNotReadyFor5w2h ] = useState()
@@ -91,6 +94,8 @@ export default function Gut() {
         if (btnLabel == 'Salvar') {
             setShowOrHide('hide')
             setBtnLabel('Editar')
+            setGutChartData('dados aqui')
+            renderGutChart()
             setRenderGUTChart(true)
         } else {
             setShowOrHide('show')
@@ -101,6 +106,13 @@ export default function Gut() {
 
     function handleNextStage() {
         console.log('handle 5w2h')
+    }
+
+    function renderGutChart() {
+        if (gutChartData) {
+
+            return (<GutChart data={gutChartData} />)
+        }
     }
 
 
@@ -118,6 +130,10 @@ export default function Gut() {
                 <div className={showOrHide}>
                     {gutInputs}
                 </div>
+                <br />
+                <Row className={showOrHideChart}>
+                    {renderGutChart()}
+                </Row>
                 <Row style={{textAlign: 'center', marginTop: 50}}>
                     <Col></Col>
                     <Col>
@@ -134,7 +150,7 @@ export default function Gut() {
                             variant='primary' 
                             className='fluid ms-auto'
                             disabled={notReadyFor5w2h}> 
-                            {"Próximo >"}
+                            { "Próximo >" }
                         </Button>
                     </Col>
                 </Row>
