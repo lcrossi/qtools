@@ -3,9 +3,6 @@ import { ListGroup, Badge} from 'react-bootstrap'
 
 export default function PqsList({pqs}) {
 
-    /* useEffect(() => {
-        list()
-    }, [pqs]) */
 
     function list() {
         if(pqs)
