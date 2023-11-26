@@ -15,6 +15,8 @@ export default function Pqs() {
         stage, setStage,
         contextIshikawaData, setContextIshikawaData,
         context5PqsData, setContext5PqsData,
+        showHidePqs, setShowHidePqs,
+        showHideGut, setShowHideGut
     } = useContext(ToolsContext)
     var allProbsAux = []
 
@@ -79,7 +81,8 @@ export default function Pqs() {
     function handleNextStage() {
         setStage('GUT')
         setContext5PqsData(allProblems)
-        console.log('Indo para GUT')
+        setShowHidePqs('hide')
+        setShowHideGut('show')
     }
 
 

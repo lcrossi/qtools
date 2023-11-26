@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { ToolsContext } from '../../context/toolsContext';
 
-import { Form, Row, Col, Container, Card} from 'react-bootstrap'
+import { Form, Row, Col, Container, Card, Button } from 'react-bootstrap'
 import './gut.css'
 
 export default function Gut() {
     const [ gutInputs, setGutInputs ] = useState()
+    const [ showOrHide, setShowOrHide ] = useState('show')
+    const [ renderGUTChart, setRenderGUTChart ] = useState(false)
     const [ gutInputsAux, setGutInputsAux ] = useState()
+    const [ notReadyFor5w2h, setNotReadyFor5w2h ] = useState()
+    const [btnLabel, setBtnLabel] = useState('Salvar')
     const {
         stage, setStage,
         contextIshikawaData, setContextIshikawaData,
@@ -23,12 +27,12 @@ export default function Gut() {
                 context5PqsData.map((problemObj, index) => {
                     if (problemObj.whys.length == 0) { //Caso sem pqs cadastrados
                         return (
-                            <Form key={`${index}`} style={{marginTop: 30}}>
+                            <Form key={`${index}`} style={{marginTop: 25}}>
                                 <Form.Label><h4>{problemObj.problem}</h4></Form.Label>
                                 <Row>
                                     <Col className='gutFactorsCols' md='auto'>
                                         <Form.Control id={`input-G-${index}`} className='mb-2 gutFactors' type="number" 
-                                            onChange={e => handleInputChange(e.target.value)}
+                                            onChange={e => handleInputChange(e.target.value, e.target.id)}
                                             onKeyDown={e => e.key === "Enter" ? console.log("ënter") : null}
                                             placeholder="G"
                                         />
@@ -52,7 +56,7 @@ export default function Gut() {
                         lastPq = problemObj.whys[problemObj.whys.length-1] //caso com pqs cadastrados -> resgata o ultimo
                         return (
                             <Form key={`${index}`}>
-                                <Form.Label style={{marginTop: 40}}><h4>{lastPq}</h4></Form.Label>
+                                <Form.Label style={{marginTop: 25}}><h4>{lastPq}</h4></Form.Label>
                                 <Row>
                                     <Col className='gutFactorsCols' md='auto'>
                                         <Form.Control id={`input-G-${index}`} className='mb-2 gutFactors' type="number" 
@@ -83,19 +87,57 @@ export default function Gut() {
         }
     }, [context5PqsData])
 
+    function loadGut() {
+        if (btnLabel == 'Salvar') {
+            setShowOrHide('hide')
+            setBtnLabel('Editar')
+            setRenderGUTChart(true)
+        } else {
+            setShowOrHide('show')
+            setBtnLabel('Salvar')
+            setRenderGUTChart(false)
+        }
+    }
+
+    function handleNextStage() {
+        console.log('handle 5w2h')
+    }
+
 
     return (
         <>
         <Card>
-            <Container fluid style={{marginTop: 30}}>
+            <Container fluid style={{marginTop: 30, marginBottom: 25}}>
                 <Row>
                     <Col>
                         <div className={`PqsFormHeader`}>
-                            <h2 className='mb-4'>GUT</h2>
+                            <h2 className='mb-1'>GUT</h2>
                         </div>
                     </Col>
                 </Row> 
-                {gutInputs}
+                <div className={showOrHide}>
+                    {gutInputs}
+                </div>
+                <Row style={{textAlign: 'center', marginTop: 50}}>
+                    <Col></Col>
+                    <Col>
+                        <Button 
+                            onClick={() => {loadGut(), setNotReadyFor5w2h(false)}} 
+                            variant='success' 
+                            className='fluid ms-auto'> 
+                            { btnLabel } 
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button 
+                            onClick={() => {loadGut(); handleNextStage()}}
+                            variant='primary' 
+                            className='fluid ms-auto'
+                            disabled={notReadyFor5w2h}> 
+                            {"Próximo >"}
+                        </Button>
+                    </Col>
+                </Row>
             </Container>
         </Card>
         </>
