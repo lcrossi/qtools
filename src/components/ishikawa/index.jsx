@@ -273,6 +273,7 @@ export default function Ishikawa() {
         setStage('5 Porquês')
         setShowHidePqs('show')
         setShowIshForm('hide')
+        setRenderIshChart(false)
         console.log('Loading 5PQs...')
     }
 
