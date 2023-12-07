@@ -9,15 +9,8 @@ export default function TierList({items}){
             let auxArray = items
             auxArray.map((item) => {
                 item.gut = item.g * item.u * item.t
-                item.order = 0
             })
-            console.log("ordered array", auxArray)
 
-            /* auxArray.forEach(obj1 => {
-                auxArray.forEach(obj2 => {
-                    if(obj1 < obj2)
-                })
-            }) */
             let i = 0
             let j = 0
             let n = items.length
@@ -39,7 +32,6 @@ export default function TierList({items}){
                 if (swapped == false)
                     break;
             }
-            console.log("ordered array", auxArray)
 
             let tierList = auxArray.map((item, idx) => {
                 return (

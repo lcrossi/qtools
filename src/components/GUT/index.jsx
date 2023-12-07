@@ -17,6 +17,7 @@ export default function Gut() {
         context5PqsData, setContext5PqsData,
         contextGUTData, setContextGUTData,
         showHideGut, setShowHideGut,
+        showHide5w2h, setShowHide5w2h,
     } = useContext(ToolsContext)
     var lastPq = ""
     var auxArray = []
@@ -196,6 +197,7 @@ export default function Gut() {
         setStage("5w2h")
         setContextGUTData(gutChartData)
         setShowHideGut('hide')
+        setShowHide5w2h('show')
         console.log('handle 5w2h')
     }
 
