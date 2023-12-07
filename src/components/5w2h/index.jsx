@@ -1,10 +1,43 @@
 import React from 'react'
-import { Row, Col, Container, Card, Button } from 'react-bootstrap'
-import { useState } from "react"
+import { useState, useEffect, useContext } from "react"
+import { ToolsContext } from '../../context/toolsContext';
+import { Row, Col, Container, Card, Button, Dropdown } from 'react-bootstrap'
 
 export default function Tool5w2h() {
     const [ notReadyToExport, setNotReadyToExport ] = useState(true)
+    const [ selectsData, setSelectsData ] = useState([])
+    const {
+        stage, setStage,
+        contextIshikawaData, setContextIshikawaData,
+        context5PqsData, setContext5PqsData,
+        contextGUTData, setContextGUTData,
+        showHideGut, setShowHideGut,
+        showHide5w2h, setShowHide5w2h,
+    } = useContext(ToolsContext)
 
+    useEffect(()=>{
+        if(contextGUTData){
+            console.log(contextGUTData)
+            let aux = []
+            /* contextGUTData.map((item, index) => {
+
+            }) */
+            setSelectsData(contextGUTData)
+        }
+    },[contextGUTData])
+
+    function itemsDropDown() {
+        if (selectsData) {
+            let aux = selectsData.map((item, index) => {
+                return (
+                    <Dropdown.Item>{`#${index+1} - ${item.name}`}</Dropdown.Item>
+                )
+            })
+
+            return aux
+        } else 
+            return null
+    }
 
     return (
         <>
@@ -16,7 +49,17 @@ export default function Tool5w2h() {
                             <h2 className='mb-1'>5W2H</h2>
                         </div>
                     </Col>
-                </Row> 
+                </Row>
+                <Row className='ms-2 mb-3' style={{marginTop: 20}}>
+                    <Dropdown>
+                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                        Dropdown Button
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        {itemsDropDown()}
+                    </Dropdown.Menu>
+                    </Dropdown>
+                </Row>
                 <Row style={{textAlign: 'center', marginTop: 50}}>
                     <Col></Col>
                     <Col>

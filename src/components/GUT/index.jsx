@@ -128,7 +128,6 @@ export default function Gut() {
 
     function renderGutChart() {
         if (gutChartData) {
-            console.log("gutdata-render", gutChartData)
             return (<GutChart data={gutChartData} />)
         }
     }
