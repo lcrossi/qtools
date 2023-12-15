@@ -10,7 +10,6 @@ import { ToolsContext } from '../../context/toolsContext'
 import './tools.css'
 
 
-
 export default function Tools() {
     const [ showHidePqs, setShowHidePqs ] = useState('hide')
     const [ showHideGut, setShowHideGut ] = useState('hide')

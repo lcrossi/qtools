@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Table, InputGroup, Form } from 'react-bootstrap'
 
-export default function ProbsTable({tableData, onChange = () => {}}){
+export default function ProbsTable({tableData}){
     useEffect(() => {rows(); console.log(tableData)},[tableData])
 
     function rows() {
@@ -63,7 +63,7 @@ export default function ProbsTable({tableData, onChange = () => {}}){
 
     return(
         <Table striped bordered hover variant="light">
-            <thead>
+            <tbody>
                 <tr>
                     <th>Ações</th>
                     <th>O quê?</th>
@@ -74,8 +74,6 @@ export default function ProbsTable({tableData, onChange = () => {}}){
                     <th>Como?</th>
                     <th>Quanto?</th>
                 </tr>
-            </thead>
-            <tbody>
                 {rows()}
             </tbody>
         </Table>

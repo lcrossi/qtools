@@ -1,9 +1,11 @@
 import React from 'react'
-import { useState, useEffect, useContext } from "react"
+import { useState, useEffect, useContext, useRef } from "react"
 import { ToolsContext } from '../../context/toolsContext';
+import { useDownloadExcel } from "react-export-table-to-excel";
 import DropdownProblems from './dropdown';
 import ProbsTable from './table';
-import { Row, Col, Container, Card, Button, Modal } from 'react-bootstrap'
+import ExportToExcel from './service/exportToExcel';
+import { Row, Col, Container, Card, Button, Modal, Table } from 'react-bootstrap'
 
 export default function Tool5w2h() {
     const [ notReadyToExport, setNotReadyToExport ] = useState(true)
@@ -13,6 +15,8 @@ export default function Tool5w2h() {
     const [ showHideAcc, setShowHideAcc ] = useState('show')
     const [ saveEditBtn, setSaveEditBtn ] = useState('Salvar')
     const [ showModalEdition, setShowModalEdition ] = useState(false)
+    const [ exported, setExported ] = useState(0)
+    const tRef = useRef(null);
     const {
         stage, setStage,
         contextIshikawaData, setContextIshikawaData,
@@ -59,7 +63,9 @@ export default function Tool5w2h() {
             console.log(aux)
         } else { //deleção ações
             for(let i = 1; i<=7; i++){ //limpando valores dos campos para não haver sobreposição
-                document.getElementById(`input-5w2h-${i}-${tableData.indexOf(value)}`).value = ""
+                document.getElementById(`input-5w2h-${i}-${tableData.indexOf(value)}`) ?
+                    document.getElementById(`input-5w2h-${i}-${tableData.indexOf(value)}`).value = "" :
+                    null
             }
             let aux = tableData
             let index = aux.indexOf(value)
@@ -67,10 +73,6 @@ export default function Tool5w2h() {
             setTableData(aux)
             console.log(aux)
         }
-    }
-
-    function handleTableChange(e) {
-        e.preventDefault()
     }
 
     function handleSalvar() {
@@ -111,7 +113,7 @@ export default function Tool5w2h() {
                     <DropdownProblems onChange={handleInputChange} selectsData={selectsData}/>
                 </Row>
                 <Row className={showHideTable} style={{textAlign: 'center', marginTop: 50}}>
-                    <ProbsTable tableData={tableData} onChange={handleTableChange}/>
+                    <ProbsTable tableData={tableData} />
                 </Row>
                 <Row style={{textAlign: 'center', marginTop: 50}}>
                     <Col></Col>
@@ -124,13 +126,9 @@ export default function Tool5w2h() {
                         </Button>
                     </Col>
                     <Col>
-                        <Button 
-                            onClick={() => {console.log('exportar')}}
-                            variant='primary' 
-                            className='fluid ms-auto'
-                            disabled={notReadyToExport}> 
-                            { "Exportar" }
-                        </Button>
+                        <ExportToExcel 
+                            tableData={tableData}
+                        />
                     </Col>
                 </Row>
             </Container>
