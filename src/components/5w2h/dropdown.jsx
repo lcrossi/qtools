@@ -63,23 +63,6 @@ export default function DropdownProblems({ selectsData, onChange = () => {} }){
                     <Accordion.Header>Selecione as ações...</Accordion.Header>
                     <Accordion.Body>
                     <ListGroup variant="flush">
-                        <ListGroup.Item>
-                        <Form.Check
-                            type={'checkbox'}
-                            id={`checkbox-${22}`}
-                            value={"algum problema"}
-                        />
-                            <Badge bg="primary" pill>
-                            14
-                            </Badge>algum problema</ListGroup.Item>
-                        <ListGroup.Item>
-                        <Form.Check
-                            type={'checkbox'}
-                            id={`checkbox-${66}`}
-                            value={"Dapibus ac facilisis in"}
-                        />Dapibus ac facilisis in</ListGroup.Item>
-                        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
                         {accordinItems()}
                     </ListGroup>
                     </Accordion.Body>

@@ -14,7 +14,7 @@ import './tools.css'
 export default function Tools() {
     const [ showHidePqs, setShowHidePqs ] = useState('hide')
     const [ showHideGut, setShowHideGut ] = useState('hide')
-    const [ showHide5w2h, setShowHide5w2h ] = useState('show')
+    const [ showHide5w2h, setShowHide5w2h ] = useState('hide')
     const [ stage, setStage] = useState('Ishikawa')
     const [ contextIshikawaData, setContextIshikawaData ] = useState({'name': ''})
     const [ context5PqsData, setContext5PqsData ] = useState()
