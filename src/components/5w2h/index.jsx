@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react"
 import { ToolsContext } from '../../context/toolsContext';
 import DropdownProblems from './dropdown';
 import ProbsTable from './table';
-import { Row, Col, Container, Card, Button, Dropdown, Accordion } from 'react-bootstrap'
+import { Row, Col, Container, Card, Button, Modal } from 'react-bootstrap'
 
 export default function Tool5w2h() {
     const [ notReadyToExport, setNotReadyToExport ] = useState(true)
@@ -13,6 +13,7 @@ export default function Tool5w2h() {
     const [ showHideTable, setShowHideTable ] = useState('hide')
     const [ showHideAcc, setShowHideAcc ] = useState('show')
     const [ saveEditBtn, setSaveEditBtn ] = useState('Salvar')
+    const [ showModalEdition, setShowModalEdition ] = useState(false)
     const {
         stage, setStage,
         contextIshikawaData, setContextIshikawaData,
@@ -33,6 +34,23 @@ export default function Tool5w2h() {
         }
     },[contextGUTData])
 
+    function handleModal() {
+        setShowModalEdition(true)
+        console.log(showModalEdition)
+    }
+
+    function modalDecision(decision) {
+        if (decision == 'cancelar') {
+            setShowModalEdition(false)
+        } else {
+            setNotReadyToExport(true)
+            setShowHideTable('hide')
+            setShowHideAcc('show')
+            setSaveEditBtn('Salvar')
+            setShowModalEdition(false)
+        }
+    }
+
     function handleInputChange(e) {
         console.log('handling')
         console.log(e.target.checked)
@@ -47,8 +65,7 @@ export default function Tool5w2h() {
             /* document.getElementsByClassName(`input-5w2h`).value */
             for(let i = 1; i<=7; i++){
                 document.getElementById(`input-5w2h-${i}-${tableData.indexOf(value)}`).value = ""
-            } 
-            
+            }
             let aux = tableData
             let index = aux.indexOf(value)
             aux.splice(index, 1)
@@ -83,15 +100,24 @@ export default function Tool5w2h() {
             setShowHideTable('show')
             setSaveEditBtn('Editar')
         } else {
-            setNotReadyToExport(true)
-            setShowHideTable('hide')
-            setShowHideAcc('show')
-            setSaveEditBtn('Salvar')
+            handleModal()
         }
     }
 
     return (
         <>
+        <Modal size="sm" show={showModalEdition} onHide={() => setShowModalEdition(false)}>
+            <Modal.Header closeButton>
+                <Modal.Title>Deseja alterar a seleção?</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>Os dados da tabela podem ser perdidos...</p>
+            </Modal.Body>
+            <Modal.Footer style={{display: 'flex', justifyContent: 'space-between'}}>
+                <Button variant="secondary" onClick={() => modalDecision('cancelar')}>Cancelar</Button>
+                <Button variant="warning" onClick={() => modalDecision('continuar')}>Continuar</Button>
+            </Modal.Footer>
+        </Modal>
         <Card className={`p-3 mb-4`} style={{marginRight: '2vw'}}>
             <Container fluid style={{marginTop: 30, marginBottom: 25}}>
                 <Row>
