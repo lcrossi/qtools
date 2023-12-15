@@ -38,12 +38,17 @@ export default function Tool5w2h() {
         console.log(e.target.checked)
         let checked = e.target.checked
         let value = e.target.value
-        if (checked) {
+        if (checked) { //inclusão ações
             let aux = tableData
             aux.push(value)
             setTableData(aux)
             console.log(aux)
-        } else {
+        } else { //deleção ações
+            /* document.getElementsByClassName(`input-5w2h`).value */
+            for(let i = 1; i<=7; i++){
+                document.getElementById(`input-5w2h-${i}-${tableData.indexOf(value)}`).value = ""
+            } 
+            
             let aux = tableData
             let index = aux.indexOf(value)
             aux.splice(index, 1)
@@ -51,7 +56,7 @@ export default function Tool5w2h() {
             console.log(aux)
         }
 
-        /*         setDropdownDisabled(true)
+        /* setDropdownDisabled(true)
         if (e.target.value) {
             if (tableData){
                 console.log('handled tdata', tableData)

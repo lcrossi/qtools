@@ -12,44 +12,44 @@ export default function ProbsTable({tableData, onChange = () => {}}){
                     <td>{row}</td>
                     <td>
                         <InputGroup>
-                            <Form.Control as="textarea"
+                            <Form.Control as="textarea" id={`input-5w2h-1-${index}`}
                             />
                         </InputGroup>
                     </td>
                     <td>
                         <InputGroup >
-                            <Form.Control as="textarea"
+                            <Form.Control as="textarea" id={`input-5w2h-2-${index}`}
                             />
                         </InputGroup>
                     </td>
                     <td>
                         <InputGroup>
-                            <Form.Control as="textarea"
+                            <Form.Control as="textarea" id={`input-5w2h-3-${index}`}
                             />
                         </InputGroup>
                     </td>
                     <td>
                         <InputGroup>
-                            <Form.Control as="textarea"
+                            <Form.Control as="textarea" id={`input-5w2h-4-${index}`}
                             />
                         </InputGroup>
                     </td>
                     <td>
                         <InputGroup>
-                            <Form.Control as="textarea"
+                            <Form.Control as="textarea" id={`input-5w2h-5-${index}`}
                             />
                         </InputGroup>
                     </td>
                     <td>
                         <InputGroup>
-                            <Form.Control as="textarea"
+                            <Form.Control as="textarea" id={`input-5w2h-6-${index}`}
                             />
                         </InputGroup>
                     </td>
                     <td>
                         <InputGroup>
                             <InputGroup.Text>R$</InputGroup.Text>
-                            <Form.Control type='number'
+                            <Form.Control type='number' id={`input-5w2h-7-${index}`}
                             />
                         </InputGroup>
                     </td>
