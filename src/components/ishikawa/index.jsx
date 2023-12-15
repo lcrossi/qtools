@@ -235,6 +235,7 @@ export default function Ishikawa() {
         if (renderIshChart == true) {
             return (
                 <Fishbone
+                    style={{cursor: 'grab'}}
                     items={ishItems}
                     wrapperStyle={{ 
                         minWidth: `${fishboneChartMinWidth}px`,
@@ -488,7 +489,9 @@ export default function Ishikawa() {
                     </Row>
                 </Container>
             </Card>
-            {fishboneChart()}
+            <div style={{cursor: 'grab'}}>
+                {fishboneChart()}
+            </div>
     </>
     )
 }

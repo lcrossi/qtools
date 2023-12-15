@@ -15,12 +15,9 @@ export default function PqsList({pqs}) {
                             key={idx}
                         >
                             <div className="ms-2">
-                                <div style={{color: '#154b9c', marginBottom: 10}}>Por quê?</div>
+                                <div style={{color: '#154b9c', marginBottom: 5}}>Por quê?</div>
                                 <div className="md-5"></div>{why}
                             </div>
-                            <Badge bg="primary" pill>
-                                {"   "}
-                            </Badge>
                         </ListGroup.Item>
                     )
                 })
@@ -40,9 +37,6 @@ export default function PqsList({pqs}) {
                 <div className="fw-bold">Problema inicial</div>
                 {pqs ? pqs.problem : null}
                 </div>
-                <Badge bg="warning" pill>
-                    {"   "}
-                </Badge>
             </ListGroup.Item>
                 {list()}
         </ListGroup>

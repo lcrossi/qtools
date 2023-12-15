@@ -88,7 +88,7 @@ export default function Pqs() {
 
     return (
         <>
-        <Card className={`p-3 mb-4`} style={{marginRight: '2vw'}}>
+        <Card className={`p-3 mb-4`} style={{marginRight: '2vw', marginTop: 20}}>
             <Container fluid style={{marginTop: 30}}>
                 <Row>
                     <Col>
@@ -100,7 +100,6 @@ export default function Pqs() {
                 <Row>
                     <Col></Col>
                     <Col xs={7}>
-                        {currentProblemNumber}
                         {<PqsList pqs={pqsToShow}/>}
                     </Col>
                     <Col></Col>

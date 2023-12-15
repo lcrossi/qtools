@@ -202,7 +202,7 @@ export default function Gut() {
 
     return (
         <>
-        <Card className={`p-3 mb-4`} style={{marginRight: '2vw'}}>
+        <Card className={`p-3 mb-4`} style={{marginRight: '2vw', marginTop: 20}}>
             <Container fluid style={{marginTop: 30, marginBottom: 25}}>
                 <Row>
                     <Col>

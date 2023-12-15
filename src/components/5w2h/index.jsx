@@ -9,7 +9,6 @@ export default function Tool5w2h() {
     const [ notReadyToExport, setNotReadyToExport ] = useState(true)
     const [ selectsData, setSelectsData ] = useState([])
     const [ tableData, setTableData ] = useState([])
-    const [ dropdownDisabled, setDropdownDisabled ] = useState(false)
     const [ showHideTable, setShowHideTable ] = useState('hide')
     const [ showHideAcc, setShowHideAcc ] = useState('show')
     const [ saveEditBtn, setSaveEditBtn ] = useState('Salvar')
@@ -27,9 +26,6 @@ export default function Tool5w2h() {
         if(contextGUTData){
             console.log(contextGUTData)
             let aux = []
-            /* contextGUTData.map((item, index) => {
-
-            }) */
             setSelectsData(contextGUTData)
         }
     },[contextGUTData])
@@ -62,8 +58,7 @@ export default function Tool5w2h() {
             setTableData(aux)
             console.log(aux)
         } else { //deleção ações
-            /* document.getElementsByClassName(`input-5w2h`).value */
-            for(let i = 1; i<=7; i++){
+            for(let i = 1; i<=7; i++){ //limpando valores dos campos para não haver sobreposição
                 document.getElementById(`input-5w2h-${i}-${tableData.indexOf(value)}`).value = ""
             }
             let aux = tableData
@@ -72,21 +67,6 @@ export default function Tool5w2h() {
             setTableData(aux)
             console.log(aux)
         }
-
-        /* setDropdownDisabled(true)
-        if (e.target.value) {
-            if (tableData){
-                console.log('handled tdata', tableData)
-                if(tableData.indexOf(e.target.value) < 0){
-                    let aux = tableData
-                    aux.push(e.target.value)
-                    setTableData(aux)
-                }
-            } else {
-                console.log('else')
-                setTableData(e.target.value)
-            }
-        } else console.log('selecao invalida') */
     }
 
     function handleTableChange(e) {
@@ -118,7 +98,7 @@ export default function Tool5w2h() {
                 <Button variant="warning" onClick={() => modalDecision('continuar')}>Continuar</Button>
             </Modal.Footer>
         </Modal>
-        <Card className={`p-3 mb-4`} style={{marginRight: '2vw'}}>
+        <Card className={`p-3 mb-4`} style={{marginRight: '2vw', marginTop: 20}}>
             <Container fluid style={{marginTop: 30, marginBottom: 25}}>
                 <Row>
                     <Col>

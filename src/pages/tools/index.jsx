@@ -35,7 +35,6 @@ export default function Tools() {
             <Navbar/>
             <div className='toolsContainer'>
                 <Stack >
-                    {`Etapa: ${stage}`}
                     <div className="ms-3"><Ishikawa /></div> 
                     <div className={`ms-3 ${showHidePqs}`}><Pqs /></div> 
                     <div className={`ms-3 ${showHideGut}`}><Gut /></div> 
