@@ -88,7 +88,7 @@ export default function Pqs() {
 
     return (
         <>
-        <Card>
+        <Card className={`p-3 mb-4`} style={{marginRight: '2vw'}}>
             <Container fluid style={{marginTop: 30}}>
                 <Row>
                     <Col>

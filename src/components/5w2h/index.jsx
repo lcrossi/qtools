@@ -1,11 +1,18 @@
 import React from 'react'
 import { useState, useEffect, useContext } from "react"
 import { ToolsContext } from '../../context/toolsContext';
-import { Row, Col, Container, Card, Button, Dropdown } from 'react-bootstrap'
+import DropdownProblems from './dropdown';
+import ProbsTable from './table';
+import { Row, Col, Container, Card, Button, Dropdown, Accordion } from 'react-bootstrap'
 
 export default function Tool5w2h() {
     const [ notReadyToExport, setNotReadyToExport ] = useState(true)
     const [ selectsData, setSelectsData ] = useState([])
+    const [ tableData, setTableData ] = useState([])
+    const [ dropdownDisabled, setDropdownDisabled ] = useState(false)
+    const [ showHideTable, setShowHideTable ] = useState('hide')
+    const [ showHideAcc, setShowHideAcc ] = useState('show')
+    const [ saveEditBtn, setSaveEditBtn ] = useState('Salvar')
     const {
         stage, setStage,
         contextIshikawaData, setContextIshikawaData,
@@ -26,22 +33,61 @@ export default function Tool5w2h() {
         }
     },[contextGUTData])
 
-    function itemsDropDown() {
-        if (selectsData) {
-            let aux = selectsData.map((item, index) => {
-                return (
-                    <Dropdown.Item>{`#${index+1} - ${item.name}`}</Dropdown.Item>
-                )
-            })
+    function handleInputChange(e) {
+        console.log('handling')
+        console.log(e.target.checked)
+        let checked = e.target.checked
+        let value = e.target.value
+        if (checked) {
+            let aux = tableData
+            aux.push(value)
+            setTableData(aux)
+            console.log(aux)
+        } else {
+            let aux = tableData
+            let index = aux.indexOf(value)
+            aux.splice(index, 1)
+            setTableData(aux)
+            console.log(aux)
+        }
 
-            return aux
-        } else 
-            return null
+        /*         setDropdownDisabled(true)
+        if (e.target.value) {
+            if (tableData){
+                console.log('handled tdata', tableData)
+                if(tableData.indexOf(e.target.value) < 0){
+                    let aux = tableData
+                    aux.push(e.target.value)
+                    setTableData(aux)
+                }
+            } else {
+                console.log('else')
+                setTableData(e.target.value)
+            }
+        } else console.log('selecao invalida') */
+    }
+
+    function handleTableChange(e) {
+        e.preventDefault()
+    }
+
+    function handleSalvar() {
+        if(saveEditBtn == 'Salvar') {
+            setNotReadyToExport(false)
+            setShowHideAcc('hide')
+            setShowHideTable('show')
+            setSaveEditBtn('Editar')
+        } else {
+            setNotReadyToExport(true)
+            setShowHideTable('hide')
+            setShowHideAcc('show')
+            setSaveEditBtn('Salvar')
+        }
     }
 
     return (
         <>
-        <Card>
+        <Card className={`p-3 mb-4`} style={{marginRight: '2vw'}}>
             <Container fluid style={{marginTop: 30, marginBottom: 25}}>
                 <Row>
                     <Col>
@@ -50,24 +96,20 @@ export default function Tool5w2h() {
                         </div>
                     </Col>
                 </Row>
-                <Row className='ms-2 mb-3' style={{marginTop: 20}}>
-                    <Dropdown>
-                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                        Dropdown Button
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        {itemsDropDown()}
-                    </Dropdown.Menu>
-                    </Dropdown>
+                <Row className={showHideAcc} style={{marginTop: 20}}>
+                    <DropdownProblems onChange={handleInputChange} selectsData={selectsData}/>
+                </Row>
+                <Row className={showHideTable} style={{textAlign: 'center', marginTop: 50}}>
+                    <ProbsTable tableData={tableData} onChange={handleTableChange}/>
                 </Row>
                 <Row style={{textAlign: 'center', marginTop: 50}}>
                     <Col></Col>
                     <Col>
                         <Button 
-                            onClick={() => {setNotReadyToExport(false)}} 
+                            onClick={handleSalvar} 
                             variant='success' 
                             className='fluid ms-auto'> 
-                            { 'Salvar' } 
+                            { saveEditBtn } 
                         </Button>
                     </Col>
                     <Col>
