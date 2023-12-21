@@ -22,7 +22,7 @@
       // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
       // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
       // Otherwise, leave pathSegmentsToKeep as 0.
-      var pathSegmentsToKeep = 1;
+      var pathSegmentsToKeep = 0;
 
       var l = window.location;
       l.replace(
@@ -36,11 +36,5 @@
     </script>
   </head>
   <body>
-    <div>
-        <h2>Sessão encerrada</h2>
-        <Link to='/qtools'>
-            <button>Return to Q-Tools</button>
-        </Link>
-    </div>
   </body>
 </html>
