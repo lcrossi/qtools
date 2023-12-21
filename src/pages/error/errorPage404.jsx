@@ -6,7 +6,7 @@ export default function Error404() {
     return(
         <div>
             <h2>ERROR 404 - Page not found</h2>
-            <Link to='/'>
+            <Link to='/qtools'>
                 <button>Return to Q-Tools</button>
             </Link>
         </div>
