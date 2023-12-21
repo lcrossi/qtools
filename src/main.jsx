@@ -31,7 +31,7 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/qtools",
     element: <App/>,
     errorElement: <Error404/>
   },
