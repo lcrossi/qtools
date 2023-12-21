@@ -26,11 +26,12 @@
           window.history.replaceState(null, null,
               l.pathname.slice(0, -1) + decoded + l.hash
           );
+          console.log('anti-refresh worked')
         }
       }(window.location))
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
-    
+
   </head>
   <body>
     <div id="root"></div>
