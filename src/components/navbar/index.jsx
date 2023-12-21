@@ -25,7 +25,7 @@ export default function Navbar() {
             </Modal.Footer>
         </Modal>
         <Stack direction='horizontal' className='navbar fluid'>
-            <Link to="/">
+            <Link to="/qtools">
                 <Button variant="secondary" className='p-2 mx-2'>{"< Voltar"}</Button>
             </Link>
             <Link to="/tools">
