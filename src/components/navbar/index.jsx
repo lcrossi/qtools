@@ -24,7 +24,7 @@ export default function Navbar() {
             </Modal.Body>
             <Modal.Footer style={{display: 'flex', justifyContent: 'space-between'}}>
                 <Button variant="secondary" onClick={() => setShowModal(false)}>Cancelar</Button>
-                <Link to="/about">
+                <Link to="/qtools/about">
                     <Button variant="warning" onClick={() => setShowModal(false)}>Continuar</Button>
                 </Link>
             </Modal.Footer>
@@ -33,7 +33,7 @@ export default function Navbar() {
             <Link to="/qtools">
                 <Button variant="secondary" className='p-2 mx-2'>{"< Voltar"}</Button>
             </Link>
-            <Link to="/tools">
+            <Link to="/qtools/tools">
                 <Figure.Image
                     className='mx-5'
                     width={110}

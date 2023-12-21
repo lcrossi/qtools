@@ -11,7 +11,7 @@ export default function Home() {
         <Container fluid className='homeContainer align-middle' >
             <Row className='home'>
                 <Col>
-                    <Link to="/tools">
+                    <Link to="/qtools/tools">
                         <img src={qtoolsLogo} className="logo" alt="Q-Tools Logo" />
                     </Link>
                 </Col>
@@ -27,7 +27,7 @@ export default function Home() {
             <br/>
             <Row>
                 <Col className='home'>
-                    <button onClick={() => navigate('/tools')}>
+                    <button onClick={() => navigate('/qtools/tools')}>
                         Iniciar
                     </button>
                 </Col>
@@ -41,7 +41,7 @@ export default function Home() {
                 </Col>
             </Row>
             <Row className='home'>
-            <Link to='/about'>
+            <Link to='/qtools/about'>
                     <p className="gray-subtitle linkAbout">
                         Para mais informações clique aqui.
                     </p>

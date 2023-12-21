@@ -11,7 +11,7 @@ import {
 
 /* const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/qtools",
     element: <App/>,
     errorElement: <ErrorPage />,
     children: [
@@ -36,11 +36,11 @@ const router = createBrowserRouter([
     errorElement: <Error404/>
   },
   {
-    path: "tools",
+    path: "/qtools/tools",
     element: <Tools/>,
   },
   {
-    path: "about",
+    path: "/qtools/about",
     element: <About/>,
   },
   
