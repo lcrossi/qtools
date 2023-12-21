@@ -14,7 +14,6 @@ export default function ExportToExcel({tableData}) {
 
   function handleModal() {
     setShowModal(true)
-    console.log(showModal)
   }
 
   function modalDecision(decision) {
@@ -56,7 +55,6 @@ export default function ExportToExcel({tableData}) {
             </tr>
             )
         })
-        console.log(tableData)
         return rows
     }
   }

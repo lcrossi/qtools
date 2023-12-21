@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Table, InputGroup, Form } from 'react-bootstrap'
 
 export default function ProbsTable({tableData}){
-    useEffect(() => {rows(); console.log(tableData)},[tableData])
 
     function rows() {
         if (tableData) {
@@ -56,7 +55,6 @@ export default function ProbsTable({tableData}){
                 </tr>
                 )
             })
-            console.log(tableData)
             return rows
         }
     }
