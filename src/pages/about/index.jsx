@@ -21,8 +21,8 @@ export default function About() {
                     O <b>Q-Tools</b> é um software que põe à disposição do usuário as famosas 
                     ferramentas da qualidade de forma integrada e intuitiva.
                     Foi originalmente desenvolvido pelo engenheiro <b>Luis Rossi</b>, como trabalho de graduação em 
-                    engenharia mecânica na Universidade Estadual de São Paulo (UNESP), no ano de 2023,
-                    focando nas necessidades de Micro e pequenas Empresas brasileiras (MPEs). A aplicação busca fornecer 
+                    engenharia mecânica na Universidade Estadual de São Paulo (UNESP), no ano de 2023. 
+                    Focando nas necessidades de Micro e pequenas Empresas brasileiras (MPEs), a aplicação busca fornecer 
                     recursos para que as organizações possam melhorar o nível da qualidade dos seus 
                     produtos e serviços, de forma a se tornarem mais competitivas no mercado brasileiro 
                     e aliviar os índices de mortalidade empresarial.
