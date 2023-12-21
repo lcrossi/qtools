@@ -7,6 +7,11 @@ import qToolsLogo from '../../assets/E-QTools_sem fundo.png'
 
 export default function Navbar() {
     const [ showModal, setShowModal ] = useState(false)
+    function handleHelpModal() {
+        if(window.location.href.slice(-6) == '/tools'){
+            setShowModal(true)
+        }
+    } 
 
     return (
         <>
@@ -37,7 +42,7 @@ export default function Navbar() {
                     />
             </Link>
             
-            <Button variant="secondary" className='p-2 mx-2' onClick={() => setShowModal(true)}>{"Ajuda"}</Button>
+            <Button variant="secondary" className='p-2 mx-2' onClick={handleHelpModal}>{"Ajuda"}</Button>
         </Stack>
         </>
     )
