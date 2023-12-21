@@ -20,11 +20,12 @@ export default function About() {
                 <p>
                     O <b>Q-Tools</b> é um software que põe à disposição do usuário as famosas 
                     ferramentas da qualidade de forma integrada e intuitiva.
-                    Foi originalmente desenvolvido pelo engenheiro <b>Luis Rossi</b>, como um trabalho de graduação em 2023,
-                    focando nas necessidades de Micro e pequenas Empresas (MPEs). A aplicação busca fornecer 
-                    recursos para que as empresas possam melhorar o nível da qualidade dos seus 
+                    Foi originalmente desenvolvido pelo engenheiro <b>Luis Rossi</b>, como trabalho de graduação em 
+                    engenharia mecânica na Universidade Estadual de São Paulo (UNESP), no ano de 2023,
+                    focando nas necessidades de Micro e pequenas Empresas brasileiras (MPEs). A aplicação busca fornecer 
+                    recursos para que as organizações possam melhorar o nível da qualidade dos seus 
                     produtos e serviços, de forma a se tornarem mais competitivas no mercado brasileiro 
-                    e aliviar os indíces de mortalidade empresarial.
+                    e aliviar os índices de mortalidade empresarial.
                 </p>
             </Row>
             <Row style={{color: '#1b325f', marginTop: 32, marginBottom: 24}}><h2>Dúvidas frequentes</h2></Row>
@@ -65,7 +66,7 @@ export default function About() {
                         <ol>
                             <li style={{marginTop: 16}}>
                                 A partir de um problema principal que se queira tratar, é preenchido o 
-                                <b>"diagrama de Ishikawa"</b> ou <b>"diagrama de causa e efeito"</b> através
+                                <b> "diagrama de Ishikawa"</b> ou <b>"diagrama de causa e efeito"</b> através
                                 se um <b>brainstorming</b> interdisciplinar de levantamento das possíveis causas da questão observada. 
                                 Recomenda-se envolver indivíduos de todas as áreas afetadas da empresa nessa dinâmica, 
                                 de forma a levantar um bom número de possíveis causas. 
@@ -75,9 +76,9 @@ export default function About() {
                                 usando a ferramenta <b>"Cinco Porquês"</b>, iterando até encontrar os reais problemas causais. 
                             </li>
                             <li style={{marginTop: 16}}>
-                                A etapa seguinte é a de priorização através da ferramenta <b>"GUT"</b>, onde uma pontuação de 
-                                define a severidade do problema, ranqueando os problemas com maior exatidão. Esta fase é 
-                                essencial para apoiar a seguinte, planos de ação. 
+                                A etapa seguinte é a de priorização através da ferramenta <b>"Matriz GUT"</b>, onde uma pontuação  
+                                define a severidade do problema, ranqueando-os com maior exatidão. Esta fase é 
+                                essencial para apoiar a seguinte: planos de ação. 
                             </li>
                             <li style={{marginTop: 16}}>
                                 O <b>5W2H</b> é a ultima ferramenta utilizada no Q-Tools. Os problemas priorizados são adicionados em um 
@@ -147,7 +148,7 @@ export default function About() {
                                 com o ranqueamento feito, sabe-se quais são os problemas mais severos e que devem ser 
                                 resolvidos primeiro, permitindo resultados sensíveis em um menor período de tempo. 
                             </p>
-                            <p>
+                            <div>
                                 Os indices G, U e T <b>variam de 1 a 5 pontos</b>, de acordo com sua severidade:
                                 <div style={{textAlign: 'center'}}>
                                     <Figure.Image src={imgGutParams} width={'60%'}/>
@@ -157,7 +158,7 @@ export default function About() {
                                         Fonte: REVISTA MANUTENÇÃO, 2023
                                     </a>
                                 </div>
-                            </p>
+                            </div>
                         </div>}
                 />
                 
