@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
-import { axisClasses } from '@mui/x-charts';
-import { useFetcher } from 'react-router-dom';
 
 export default function GutChart({data}) {
     /* const chartSetting = {
@@ -60,7 +58,23 @@ export default function GutChart({data}) {
       series={
         dataLabels
       }
-      height={500}
+      height={600}
+      margin={{
+        bottom: 200
+      }}
+      slotProps={{
+        legend: {
+          direction: 'row',
+          position: { vertical: 'bottom', horizontal: 'left' },
+          padding: {
+            left: 60,
+          },
+          itemMarkWidth: 15,
+          itemMarkHeight: 15,
+          markGap: 5,
+          itemGap: 11,
+        },
+      }}
     />
   );
 }

@@ -177,12 +177,12 @@ export default function Gut() {
             event.target.value = 5; 
             handleInputChange(index, letter, event.target.value)
         } else{
-            if(event.target.value < 0){
-                event.target.value = 0;
+            if(event.target.value <= 0){
+                event.target.value = 1;
                 handleInputChange(index, letter, event.target.value)
             } else {
                 if (event.target.value == "") {
-                    event.target.value = 0;
+                    event.target.value = 1;
                     handleInputChange(index, letter, event.target.value)
                 }
                 else{
@@ -206,8 +206,8 @@ export default function Gut() {
             <Container fluid style={{marginTop: 30, marginBottom: 25}}>
                 <Row>
                     <Col>
-                        <div className={`PqsFormHeader`}>
-                            <h2 className='mb-1'>GUT</h2>
+                        <div style={{color: '#1b325f'}}>
+                            <h2 className='mb-1 ms-2'>GUT</h2>
                         </div>
                     </Col>
                 </Row> 
@@ -220,7 +220,7 @@ export default function Gut() {
                         {renderTierList()}
                     </Col>
                 </Row>
-                <Row className={showOrHideChart} style={{marginTop: 50}}>
+                <Row className={showOrHideChart} style={{marginTop: 20}}>
                     {renderGutChart()}
                 </Row>
                 <Row style={{textAlign: 'center', marginTop: 50}}>
