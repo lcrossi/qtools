@@ -10,7 +10,7 @@ export default function AboutAccordion({header, text, img}) {
                     <Accordion.Body>
                         <div>
                             <div style={{textAlign: 'center'}}>
-                                <Figure.Image src={img} width={'90%'}/>
+                                <Figure.Image src={img} width={'65%'}/>
                             </div>
                             <div style={{fontSize: 18}}>{text}</div>
                         </div>
