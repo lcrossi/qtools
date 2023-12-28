@@ -90,6 +90,19 @@ export default function About() {
                 />
 
                 <AboutAccordion 
+                    header="O que é Brainstorming?"
+                    text={<div>
+                            Brainstorming, ou tempestade de ideias em uma tradução livre, é o nome dado a uma 
+                            técnica que junta um grupo de pessoas relacionadas a um problema e promove um momento 
+                            que incentiva o compartilhamento espontâneo de ideias, buscando soluções ou gerando 
+                            insights de criatividade. 
+                            Quanto maior o numero de participantes, e consequentemente de ideias, melhor, pois 
+                            haverá contribuições de diferentes pontos de vista. Lembrando que é importante manter 
+                            um foco claro no objetivo proposto e ter o respeito pelas ideias como regra fundamental.
+                        </div>}
+                />
+
+                <AboutAccordion 
                     header="O que é o diagrama de Ishikawa?"
                     img={imgIsh}
                     text={<div style={{marginTop: 16}}>

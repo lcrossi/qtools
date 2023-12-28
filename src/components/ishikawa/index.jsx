@@ -299,6 +299,8 @@ export default function Ishikawa() {
                         <p>Preencha o campo abaixo com um problema principal, e os demais campos com problemas 
                             relacionados a ele de acordo com as categorias (método, máquina, material, etc.):
                         </p>
+                        <p>Obs. recomenda-se uma sessão de brainstorming para essa etapa.
+                        </p>
                         <Form.Label><b> Problema inicial</b></Form.Label>
                         <Form.Control 
                             type="text" 
