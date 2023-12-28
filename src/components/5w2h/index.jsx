@@ -110,9 +110,11 @@ export default function Tool5w2h() {
                     </Col>
                 </Row>
                 <Row className={showHideAcc} style={{marginTop: 20}}>
+                    <p>Selecione os problemas para elaborar ações corretivas:</p>
                     <DropdownProblems onChange={handleInputChange} selectsData={selectsData}/>
                 </Row>
                 <Row className={showHideTable} style={{textAlign: 'center', marginTop: 50}}>
+                    <p style={{textAlign: 'left'}}>Preencha os campos de forma a responder as perguntas da respectiva coluna:</p>
                     <ProbsTable tableData={tableData} />
                 </Row>
                 <Row style={{textAlign: 'center', marginTop: 50}}>

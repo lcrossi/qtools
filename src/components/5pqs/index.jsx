@@ -98,6 +98,11 @@ export default function Pqs() {
                     </Col>
                 </Row>
                 <Row>
+                    <p>Adicione o porquê de cada problema listado quantas vezes for necessário 
+                        para chegar a uma possível causa raiz: 
+                    </p>
+                </Row>
+                <Row>
                     <Col></Col>
                     <Col xs={7}>
                         {<PqsList pqs={pqsToShow}/>}

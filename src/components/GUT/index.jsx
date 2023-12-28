@@ -211,7 +211,8 @@ export default function Gut() {
                         </div>
                     </Col>
                 </Row> 
-                <div className={showOrHideForm}>
+                <div className={`${showOrHideForm} ms-2`}>
+                    <div>Insira a pontuação GUT (Gravidade, Urgência, Tendência) para cada problema:</div>
                     {gutInputs()}
                 </div>
                 <br />

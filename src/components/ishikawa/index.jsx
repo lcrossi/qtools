@@ -296,7 +296,10 @@ export default function Ishikawa() {
                 </div>
                 <Form className={showOrHide}>
                     <Form.Group className="mb-5">
-                        <Form.Label>Problema inicial</Form.Label>
+                        <p>Preencha o campo abaixo com um problema principal, e os demais campos com problemas 
+                            relacionados a ele de acordo com as categorias (método, máquina, material, etc.):
+                        </p>
+                        <Form.Label><b> Problema inicial</b></Form.Label>
                         <Form.Control 
                             type="text" 
                             placeholder="Escreva o problema" 
