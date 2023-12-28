@@ -36,7 +36,7 @@ export default function DropdownProblems({ selectsData, onChange = () => {} }){
         <Col className='mb-3' xs={7} onChange={onChange}>
             <Accordion defaultActiveKey="0">
                 <Accordion.Item eventKey="0">
-                    <Accordion.Header>Selecione as ações...</Accordion.Header>
+                    <Accordion.Header>Selecione problemas para solucionar...</Accordion.Header>
                     <Accordion.Body>
                     <ListGroup variant="flush">
                         {accordinItems()}

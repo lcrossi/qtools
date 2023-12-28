@@ -63,7 +63,7 @@ export default function ProbsTable({tableData}){
         <Table striped bordered hover variant="light">
             <tbody>
                 <tr>
-                    <th>Ações</th>
+                    <th>Problema</th>
                     <th>O quê?</th>
                     <th>Quem?</th>
                     <th>Onde?</th>
