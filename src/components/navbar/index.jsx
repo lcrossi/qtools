@@ -7,9 +7,16 @@ import qToolsLogo from '../../assets/E-QTools_sem fundo.png'
 
 export default function Navbar() {
     const [ showModal, setShowModal ] = useState(false)
+    const [ showModalHome, setShowModalHome ] = useState(false)
     function handleHelpModal() {
         if(window.location.href.slice(-6) == '/tools'){
             setShowModal(true)
+        }
+    }
+     
+    function handleHelpModalHome() {
+        if(window.location.href.slice(-6) == '/tools'){
+            setShowModalHome(true)
         }
     } 
 
@@ -29,10 +36,22 @@ export default function Navbar() {
                 </Link>
             </Modal.Footer>
         </Modal>
+        <Modal size="sm" show={showModalHome} onHide={() => setShowModalHome(false)}>
+            <Modal.Header closeButton>
+                <Modal.Title>Deseja sair da pagina?</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>Os dados inseridos serão perdidos...</p>
+            </Modal.Body>
+            <Modal.Footer style={{display: 'flex', justifyContent: 'space-between'}}>
+                <Button variant="secondary" onClick={() => setShowModalHome(false)}>Cancelar</Button>
+                <Link to="/qtools/about">
+                    <Button variant="warning" onClick={() => setShowModalHome(false)}>Continuar</Button>
+                </Link>
+            </Modal.Footer>
+        </Modal>
         <Stack direction='horizontal' className='navbar fluid'>
-            <Link to="/qtools">
-                <Button variant="secondary" className='p-2 mx-2'>{"< Voltar"}</Button>
-            </Link>
+            <Button variant="secondary" className='p-2 mx-2' onClick={handleHelpModalHome}>{"< Voltar"}</Button>
             <Link to="/qtools/tools">
                 <Figure.Image
                     className='mx-5'
