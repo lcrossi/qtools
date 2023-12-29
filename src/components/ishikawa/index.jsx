@@ -1,8 +1,9 @@
 import React, { useState, useContext } from 'react'
-import { Button, Form, Row, Card, Col, Container, Modal, Stack } from 'react-bootstrap'
+import { Button, Form, Row, Card, Col, Container, Modal, Figure, ModalBody } from 'react-bootstrap'
 import Fishbone from '@hophiphip/react-fishbone';
 import { ToolsContext } from '../../context/toolsContext';
 import ProbList from './probList';
+import imgIsh from '../../assets/ishikawa-exp.png'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './ishikawa.css'
 
@@ -22,6 +23,7 @@ export default function Ishikawa() {
     const [ishMedicao, setIshMedicao] = useState([])
     const [showModalProbAdded, setShowModalProbAdded] = useState(false);
     const [showModalProbError, setShowModalProbError] = useState(false);
+    const [showModalInfo, setShowModalInfo] = useState(false)
     const [fishboneChartMinWidth, setFishboneChartMinWidth] = useState(900)
     // Variáveis do context
     const { 
@@ -290,9 +292,55 @@ export default function Ishikawa() {
                 <Modal.Title>Erro ao adicionar!</Modal.Title>
                 </Modal.Header>
             </Modal>
+            <Modal size="md" show={showModalInfo} onHide={() => setShowModalInfo(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>O que é o diagrama de Ishikawa?</Modal.Title>
+                </Modal.Header>
+                <ModalBody>
+                    <Figure.Image
+                        width={'100%'}
+                        alt="logo q-tools"
+                        src={imgIsh}
+                        />
+                    <p>
+                        O <b>"diagrama de Ishikawa"</b> ou <b>"diagrama de causa e efeito"</b> é uma das ferramentas 
+                        da qualidade mais antigas, inventada por Kaoru Ishikawa na década de 60. Consiste na elaboração
+                        de um diagrama que assume o formato de uma "espinha de peixe", onde as espinhas
+                        representam a categoria dos problemas nela inseridos, os 6Ms:
+                    </p>
+                    <ul>
+                        <li>
+                            <b>Método</b>: De que maneira a abordagem para a execução do trabalho impacta a questão?
+                        </li>
+                        <li>
+                            <b>Mão de obra</b>: Como a contribuição das pessoas envolvidas na atividade influencia a questão?
+                        </li>
+                        <li>
+                            <b>Material</b>: De que maneira a qualidade e a natureza dos materiais empregados afetam a situação?
+                        </li>
+                        <li>
+                            <b>Máquina</b>: Como os dispositivos empregados no processo afetam a situação?
+                        </li>
+                        <li>
+                            <b>Meio ambiente</b>: De que forma o ambiente no qual a atividade está sendo conduzida repercute sobre a questão?
+                        </li>
+                        <li>
+                            <b>Meio de Medição</b>: Qual é o impacto do uso de métricas para avaliar o progresso da atividade em questão?
+                        </li>
+                    </ul>
+                </ModalBody>
+            </Modal>
             <Card id="ishiForm" className={`p-3 mb-4 ${showIshForm}`}>
                 <div className={`ishFormHeader`}>
-                    <h2 className='mb-4'>Diagrama de Ishikawa</h2>
+                    <Row>
+                        <Col>
+                            <h2 className='mb-4'>Diagrama de Ishikawa</h2>
+                        </Col>
+                        <Col></Col>
+                        <Col style={{textAlign: 'right', marginRight: '10vw'}}>
+                            <Button onClick={() => setShowModalInfo(true)} variant='outline-info' size='sm'>Ajuda</Button>
+                        </Col>
+                    </Row>
                 </div>
                 <Form className={showOrHide}>
                     <Form.Group className="mb-5">

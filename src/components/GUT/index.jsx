@@ -2,7 +2,9 @@ import React, { useState, useEffect, useContext } from 'react'
 import GutChart from './gutChart'
 import TierList from './tierList';
 import { ToolsContext } from '../../context/toolsContext';
-import { Form, Row, Col, Container, Card, Button } from 'react-bootstrap'
+import { Form, Row, Col, Container, Card, Button, Modal, Figure, ModalBody } from 'react-bootstrap'
+import img from '../../assets/gut-exp.png'
+import imgGutParams from '../../assets/gut-params.png'
 import './gut.css'
 
 export default function Gut() {
@@ -10,7 +12,8 @@ export default function Gut() {
     const [ showOrHideForm, setShowOrHideForm ] = useState('show')
     const [ showOrHideChart, setShowOrHideChart ] = useState('hide')
     const [ notReadyFor5w2h, setNotReadyFor5w2h ] = useState()
-    const [btnLabel, setBtnLabel] = useState('Salvar')
+    const [ btnLabel, setBtnLabel   ] = useState('Salvar')
+    const [ showModalInfo, setShowModalInfo ] = useState(false)
     const {
         stage, setStage,
         contextIshikawaData, setContextIshikawaData,
@@ -202,6 +205,39 @@ export default function Gut() {
 
     return (
         <>
+        <Modal size="lg" show={showModalInfo} onHide={() => setShowModalInfo(false)}>
+            <Modal.Header closeButton>
+                <Modal.Title>O que é a matriz GUT?</Modal.Title>
+            </Modal.Header>
+            <ModalBody>
+                <Figure.Image
+                    width={'100%'}
+                    alt="logo q-tools"
+                    src={img}
+                    />
+                <p>
+                    A <b>Matriz GUT</b> é uma ferramenta que fornece apoio na ordenação de soluções para problemas, 
+                    sendo também referida como <b>Matriz de Prioridades</b>. A análise GUT é amplamente empregada 
+                    em situações que demandam orientação para a tomada de decisões, especialmente 
+                    aquelas que envolvem a análise de múltiplos problemas. Por meio do sistema GUT, 
+                    é viável categorizar cada problema com base em sua Gravidade, Urgência e Tendência, 
+                    resultando na sigla GUT. Esta etapa é essencial para apoiar a elaboração de planos de ação, 
+                    com o ranqueamento feito, sabe-se quais são os problemas mais severos e que devem ser 
+                    resolvidos primeiro, permitindo resultados sensíveis em um menor período de tempo. 
+                </p>
+                <div>
+                    Os indices G, U e T <b>variam de 1 a 5 pontos</b>, de acordo com sua severidade:
+                    <div style={{textAlign: 'center'}}>
+                        <Figure.Image src={imgGutParams} width={'100%'}/>
+                    </div>
+                    <div style={{textAlign: 'center'}}>
+                        <a style={{fontSize: 12}} href='https://www.revistamanutencao.com.br/literatura/tecnica/gestao-de-ativos/o-uso-da-matriz-gut-nos-processos-industriais.html'>
+                            Fonte: REVISTA MANUTENÇÃO, 2023
+                        </a>
+                    </div>
+                </div>
+            </ModalBody>
+        </Modal>
         <Card className={`p-3 mb-4`} style={{marginRight: '2vw', marginTop: 20}}>
             <Container fluid style={{marginTop: 30, marginBottom: 25}}>
                 <Row>
@@ -209,6 +245,10 @@ export default function Gut() {
                         <div style={{color: '#1b325f'}}>
                             <h2 className='mb-1 ms-2'>GUT</h2>
                         </div>
+                    </Col>
+                    <Col></Col>
+                    <Col style={{textAlign: 'right', marginRight: '10vw'}}>
+                        <Button onClick={() => setShowModalInfo(true)} variant='outline-info' size='sm'>Ajuda</Button>
                     </Col>
                 </Row> 
                 <div className={`${showOrHideForm} ms-2`}>

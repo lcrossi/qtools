@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState, useEffect, useContext, useRef } from "react"
 import { ToolsContext } from '../../context/toolsContext';
-import { useDownloadExcel } from "react-export-table-to-excel";
 import DropdownProblems from './dropdown';
 import ProbsTable from './table';
 import ExportToExcel from './service/exportToExcel';
-import { Row, Col, Container, Card, Button, Modal, Table } from 'react-bootstrap'
+import { Row, Col, Container, Card, Button, Modal, ModalBody, Figure } from 'react-bootstrap'
+import img from '../../assets/5w2h-exp.png'
 
 export default function Tool5w2h() {
     const [ notReadyToExport, setNotReadyToExport ] = useState(true)
@@ -15,6 +15,7 @@ export default function Tool5w2h() {
     const [ showHideAcc, setShowHideAcc ] = useState('show')
     const [ saveEditBtn, setSaveEditBtn ] = useState('Salvar')
     const [ showModalEdition, setShowModalEdition ] = useState(false)
+    const [ showModalInfo, setShowModalInfo ] = useState(false)
     const [ exported, setExported ] = useState(0)
     const tRef = useRef(null);
     const {
@@ -100,6 +101,49 @@ export default function Tool5w2h() {
                 <Button variant="warning" onClick={() => modalDecision('continuar')}>Continuar</Button>
             </Modal.Footer>
         </Modal>
+        <Modal size="md" show={showModalInfo} onHide={() => setShowModalInfo(false)}>
+            <Modal.Header closeButton>
+                <Modal.Title>O que é 5W2H?</Modal.Title>
+            </Modal.Header>
+            <ModalBody>
+                <Figure.Image
+                    width={'100%'}
+                    alt="logo q-tools"
+                    src={img}
+                    />
+                <p>
+                    É um método que busca organizar e garantir que um conjunto de ações sejam planejadas e 
+                    conduzidas, eliminando dúvidas. Sendo muito utilizado em projetos de melhoria para ter 
+                    objetivos e responsabilidades bem definidas mesmo ao longo do tempo.
+                    O termo 5W + 2H surge das iniciais das palavras em inglês que guiam a elaboração 
+                    do formulário que a ferramenta propõe:
+                </p>
+                <ul style={{marginTop: 12}}>
+                    <li>
+                        WHAT (o quê?);
+                    </li>
+                    <li>
+                        WHERE (onde?);
+                    </li>
+                    <li>
+                        WHY (por quê?);
+                    </li>
+                    <li>
+                        WHO (quem?);
+                    </li>
+                    <li>
+                        WHEN (quando?);
+                    </li>
+                    <li>
+                        HOW (como?);
+                    </li>
+                    <li>
+                        HOW MUCH (quanto custa?).
+                    </li>
+                </ul>
+                <p>Os itens costumam ser preenchidos conforme o quadro acima para maior organização.</p>
+            </ModalBody>
+        </Modal>
         <Card className={`p-3 mb-4`} style={{marginRight: '2vw', marginTop: 20}}>
             <Container fluid style={{marginTop: 30, marginBottom: 25}}>
                 <Row>
@@ -107,6 +151,10 @@ export default function Tool5w2h() {
                         <div className={`PqsFormHeader`}>
                             <h2 className='mb-1'>5W2H</h2>
                         </div>
+                    </Col>
+                    <Col></Col>
+                    <Col style={{textAlign: 'right', marginRight: '10vw'}}>
+                        <Button onClick={() => setShowModalInfo(true)} variant='outline-info' size='sm'>Ajuda</Button>
                     </Col>
                 </Row>
                 <Row className={showHideAcc} style={{marginTop: 20}}>

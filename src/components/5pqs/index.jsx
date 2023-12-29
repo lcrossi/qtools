@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Button, Form, Row, Card, Col, Container, Modal } from 'react-bootstrap'
+import { Button, Form, Row, Card, Col, Container, Modal, ModalBody, Figure } from 'react-bootstrap'
 import PqsList from './pqsSection';
 import { ToolsContext } from '../../context/toolsContext';
+import img from '../../assets/pqs-exp.png'
 import './5pqs.css'
 
 export default function Pqs() {
@@ -11,6 +12,7 @@ export default function Pqs() {
     const [ showPorques, setShowPorques ] = useState(<></>)
     const [ inputValue, setInputValue ] = useState('')
     const [ currentProblemNumber, setCurrentProblemNumber ] = useState(0)
+    const [ showModalInfo, setShowModalInfo ] = useState(false)
     const { 
         stage, setStage,
         contextIshikawaData, setContextIshikawaData,
@@ -88,13 +90,38 @@ export default function Pqs() {
 
     return (
         <>
+        <Modal size="md" show={showModalInfo} onHide={() => setShowModalInfo(false)}>
+            <Modal.Header closeButton>
+                <Modal.Title>O que é 5 Porquês?</Modal.Title>
+            </Modal.Header>
+            <ModalBody>
+                <Figure.Image
+                    width={'100%'}
+                    alt="logo q-tools"
+                    src={img}
+                    />
+                <p>
+                    A ferramenta 5 Porquês consiste em perguntar o porquê do problema analisado algumas vezes, até que se
+                    chegue a um problema que pode ser considerado como raiz, ou seja, o real causador. O Q-Tools não 
+                    limita a perguntar 5 vezes, itere o quanto achar necessário.
+                </p>
+            </ModalBody>
+        </Modal>
         <Card className={`p-3 mb-4`} style={{marginRight: '2vw', marginTop: 20}}>
             <Container fluid style={{marginTop: 30}}>
                 <Row>
                     <Col>
-                        <div className={`PqsFormHeader`}>
-                            <h2 className='mb-4'>5 Porquês</h2>
-                        </div>
+                        <Row>
+                            <Col>
+                                <div className={`PqsFormHeader`}>
+                                    <h2 className='mb-4'>5 Porquês</h2>
+                                </div>
+                            </Col>
+                            <Col></Col>
+                            <Col style={{textAlign: 'right', marginRight: '10vw'}}>
+                                <Button onClick={() => setShowModalInfo(true)} variant='outline-info' size='sm'>Ajuda</Button>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
                 <Row>
