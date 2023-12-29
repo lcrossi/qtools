@@ -360,6 +360,7 @@ export default function Ishikawa() {
                         <Form.Label>Problema - Método</Form.Label>
                         <Form.Control id='input_metodo' className='mb-2' type="text" 
                             onChange={e => handleInputChange('metodo', e.target.value)}
+                            onKeyDown={e => e.key === "Enter" ? addIshProblem('metodo') : null}
                             placeholder="Adicione um problema por vez" 
                         />
                         <Container fluid className='md-0'>
@@ -385,6 +386,7 @@ export default function Ishikawa() {
                         <Form.Label>Problema - Mão de Obra</Form.Label>
                         <Form.Control id='input_mao' className='mb-2' type="text" 
                             onChange={e => handleInputChange('mao', e.target.value)}
+                            onKeyDown={e => e.key === "Enter" ? addIshProblem('mao') : null}
                             placeholder="Adicione um problema por vez" 
                         />
                         <Container fluid className='md-0'>
@@ -410,6 +412,7 @@ export default function Ishikawa() {
                         <Form.Label>Problema - Material</Form.Label>
                         <Form.Control id='input_material' className='mb-2' type="text" 
                             onChange={e => handleInputChange('material', e.target.value)}
+                            onKeyDown={e => e.key === "Enter" ? addIshProblem('material') : null}
                             placeholder="Adicione um problema por vez" 
                         />
                         <Container fluid className='md-0'>
@@ -435,6 +438,7 @@ export default function Ishikawa() {
                         <Form.Label>Problema - Máquina</Form.Label>
                         <Form.Control id='input_maquina' className='mb-2' type="text" 
                             onChange={e => handleInputChange('maquina', e.target.value)}
+                            onKeyDown={e => e.key === "Enter" ? addIshProblem('maquina') : null}
                             placeholder="Adicione um problema por vez" 
                         />
                         <Container fluid className='md-0'>
@@ -460,6 +464,7 @@ export default function Ishikawa() {
                         <Form.Label>Problema - Meio Ambiente</Form.Label>
                         <Form.Control id='input_ambiente' className='mb-2' type="text" 
                             onChange={e => handleInputChange('ambiente', e.target.value)}
+                            onKeyDown={e => e.key === "Enter" ? addIshProblem('ambiente') : null}
                             placeholder="Adicione um problema por vez" 
                         />
                         <Container fluid className='md-0'>
@@ -485,6 +490,7 @@ export default function Ishikawa() {
                         <Form.Label>Problema - Meio de Medição</Form.Label>
                         <Form.Control id='input_medicao' className='mb-2' type="text" 
                             onChange={e => handleInputChange('medicao', e.target.value)}
+                            onKeyDown={e => e.key === "Enter" ? addIshProblem('medicao') : null}
                             placeholder="Adicione um problema por vez" 
                         />
                         <Container fluid className='md-0'>
