@@ -113,14 +113,12 @@ export default function Pqs() {
                     <Col>
                         <Row>
                             <Col>
-                                <div className={`PqsFormHeader`}>
-                                    <h2 className='mb-4'>5 Porquês</h2>
+                                <div className={`PqsFormHeader`} style={{color: '#1b325f', display: 'flex'}}>
+                                    <h2 className='mb-4' style={{marginRight: 16}}>5 Porquês</h2>
+                                    <Button onClick={() => setShowModalInfo(true)} variant='outline-info' size='sm'>?</Button>
                                 </div>
                             </Col>
                             <Col></Col>
-                            <Col style={{textAlign: 'right', marginRight: '10vw'}}>
-                                <Button onClick={() => setShowModalInfo(true)} variant='outline-info' size='sm'>Ajuda</Button>
-                            </Col>
                         </Row>
                     </Col>
                 </Row>

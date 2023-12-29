@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Button, Form, Row, Card, Col, Container, Modal, Figure, ModalBody } from 'react-bootstrap'
+import { Button, Form, Row, Card, Col, Container, Modal, Figure, ModalBody, Tooltip } from 'react-bootstrap'
 import Fishbone from '@hophiphip/react-fishbone';
 import { ToolsContext } from '../../context/toolsContext';
 import ProbList from './probList';
@@ -279,6 +279,11 @@ export default function Ishikawa() {
         setRenderIshChart(false)
         console.log('Loading 5PQs...')
     }
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+          G
+        </Tooltip>
+    );
 
     return (
         <>
@@ -334,11 +339,10 @@ export default function Ishikawa() {
                 <div className={`ishFormHeader`}>
                     <Row>
                         <Col>
-                            <h2 className='mb-4'>Diagrama de Ishikawa</h2>
-                        </Col>
-                        <Col></Col>
-                        <Col style={{textAlign: 'right', marginRight: '10vw'}}>
-                            <Button onClick={() => setShowModalInfo(true)} variant='outline-info' size='sm'>Ajuda</Button>
+                            <div style={{color: '#1b325f', display: 'flex'}}>
+                                <h2 className='mb-4' style={{marginRight: 16}}>Diagrama de Ishikawa</h2>
+                                <Button onClick={() => setShowModalInfo(true)} variant='outline-info' size='sm'>?</Button>
+                            </div>
                         </Col>
                     </Row>
                 </div>

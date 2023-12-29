@@ -45,7 +45,7 @@ export default function Navbar() {
             </Modal.Body>
             <Modal.Footer style={{display: 'flex', justifyContent: 'space-between'}}>
                 <Button variant="secondary" onClick={() => setShowModalHome(false)}>Cancelar</Button>
-                <Link to="/qtools/about">
+                <Link to="/qtools/">
                     <Button variant="warning" onClick={() => setShowModalHome(false)}>Continuar</Button>
                 </Link>
             </Modal.Footer>

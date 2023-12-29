@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import GutChart from './gutChart'
 import TierList from './tierList';
 import { ToolsContext } from '../../context/toolsContext';
-import { Form, Row, Col, Container, Card, Button, Modal, Figure, ModalBody } from 'react-bootstrap'
+import { Form, Row, Col, Container, Card, Button, Modal, Figure, ModalBody, Tooltip  } from 'react-bootstrap'
 import img from '../../assets/gut-exp.png'
 import imgGutParams from '../../assets/gut-params.png'
 import './gut.css'
@@ -241,14 +241,11 @@ export default function Gut() {
         <Card className={`p-3 mb-4`} style={{marginRight: '2vw', marginTop: 20}}>
             <Container fluid style={{marginTop: 30, marginBottom: 25}}>
                 <Row>
-                    <Col>
-                        <div style={{color: '#1b325f'}}>
-                            <h2 className='mb-1 ms-2'>GUT</h2>
+                    <Col ms='auto'>
+                        <div style={{color: '#1b325f', display: 'flex'}}>
+                            <h2 className='mb-1 ms-2 mx-3'>GUT</h2>
+                            <Button onClick={() => setShowModalInfo(true)} variant='outline-info' size='sm'>?</Button>
                         </div>
-                    </Col>
-                    <Col></Col>
-                    <Col style={{textAlign: 'right', marginRight: '10vw'}}>
-                        <Button onClick={() => setShowModalInfo(true)} variant='outline-info' size='sm'>Ajuda</Button>
                     </Col>
                 </Row> 
                 <div className={`${showOrHideForm} ms-2`}>
