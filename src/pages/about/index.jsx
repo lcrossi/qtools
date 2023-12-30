@@ -8,6 +8,7 @@ import imgPqs from '../../assets/pqs-exp.png'
 import imgGut from '../../assets/gut-exp.png'
 import imgGutParams from '../../assets/gut-params.png'
 import img5W2H from '../../assets/5w2h-exp.png'
+import video from '../../assets/apresentacao-qtools.mp4'
 import { Row, Container, Figure } from 'react-bootstrap'
 
 export default function About() {
@@ -27,6 +28,9 @@ export default function About() {
                     produtos e serviços, de forma a se tornarem mais competitivas no mercado brasileiro 
                     e aliviar os índices de mortalidade empresarial.
                 </p>
+            </Row>
+            <Row style={{color: '#1b325f', marginTop: 16, marginBottom: 24, textAlign: 'center', height: '70vh'}}>
+                <iframe src={video} allowfullscreen></iframe>
             </Row>
             <Row style={{color: '#1b325f', marginTop: 32, marginBottom: 24}}><h2>Dúvidas frequentes</h2></Row>
             <Row>
